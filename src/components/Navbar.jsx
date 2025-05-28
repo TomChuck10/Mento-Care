@@ -3,7 +3,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import Logo from "../assets/mento_logo.png";
 import BurgerMenu from "../assets/burgerMenu.svg";
 
+import { useIsMobile } from "../hooks/useIsMobile";
+
 const Navbar = () => {
+	const isMobile = useIsMobile();
+
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const menuItems = [
