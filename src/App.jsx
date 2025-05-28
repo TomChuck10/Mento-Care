@@ -5,7 +5,11 @@ import TikTokLogo from "./assets/tiktok_logo.svg";
 import Girl from "./assets/girl_main_page.png";
 import Navbar from "./components/Navbar";
 
+import { useIsMobile } from "../hooks/useIsMobile";
+
 function App() {
+	const isMobile = useIsMobile();
+
 	return (
 		<>
 			<Navbar />
