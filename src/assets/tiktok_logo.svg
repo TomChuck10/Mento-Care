@@ -1,0 +1,7 @@
+<svg id="Component_3_1" data-name="Component 3 – 1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Rectangle_24" data-name="Rectangle 24" fill="none" stroke="#fff" stroke-width="2">
+    <rect width="48" height="48" rx="24" stroke="none"/>
+    <rect x="1" y="1" width="46" height="46" rx="23" fill="none"/>
+  </g>
+  <path id="Path_3" data-name="Path 3" d="M21,9.84A9.849,9.849,0,0,1,15.243,8v8.382A7.623,7.623,0,1,1,8.671,8.827v4.214a3.5,3.5,0,1,0,2.447,3.338V0h4.125a5.682,5.682,0,0,0,.089,1.041h0A5.729,5.729,0,0,0,17.859,4.8,5.691,5.691,0,0,0,21,5.743Z" transform="translate(13.002 12)" fill="none" stroke="#fff" stroke-width="1.5"/>
+</svg>
