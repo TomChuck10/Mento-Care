@@ -118,14 +118,16 @@ const Navbar = () => {
         <div className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex flex-col justify-center items-center text-lg font-light uppercase z-10">
           <ul className="flex flex-col gap-8 text-center text-white text-[18px]">
             {menus.map((item, index) => (
-              <li
+              <a
                 key={index}
+                href={`/#${item.id}`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="cursor-pointer"
               >
                 {item.name}
-              </li>
+              </a>
             ))}
+            <li>BLOG</li>
             <li>
               <p className="text-prime font-bold flex justify-center items-center gap-2">
                 <span>{`>`}</span>
