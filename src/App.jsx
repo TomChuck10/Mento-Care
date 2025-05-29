@@ -116,8 +116,8 @@ function App() {
           {/* <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div> */}
 
           {/* Content container */}
-          <div className="container mx-auto px-[98px] z-20 relative">
-            <div className="flex flex-col md:flex-row items-end justify-between">
+          <div className="px-[98px] z-20 relative">
+            <div className="flex flex-row items-end justify-between">
               {/* Text content */}
               <div className="md:w-1/2  md:pr-12">
                 <h2
