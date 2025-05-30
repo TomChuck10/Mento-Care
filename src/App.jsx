@@ -115,7 +115,7 @@ function App() {
             id="about"
             className="snap-start h-screen w-full relative px-6 py-10 flex flex-col"
             style={{
-              minHeight: "100vh",
+              minHeight: "100dvh",
               paddingTop: "max(10px, env(safe-area-inset-top))",
               paddingBottom: "max(10px, env(safe-area-inset-bottom))",
             }}
@@ -292,7 +292,7 @@ function App() {
             id="services"
             className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
             style={{
-              minHeight: "100vh",
+              minHeight: "100dvh",
               paddingTop: "max(10px, env(safe-area-inset-top))",
               paddingBottom: "max(10px, env(safe-area-inset-bottom))",
             }}
@@ -583,7 +583,7 @@ function App() {
             id="pricing"
             className="snap-start h-screen w-full relative px-6 py-10"
             style={{
-              minHeight: "100vh",
+              minHeight: "100dvh",
               paddingTop: "max(10px, env(safe-area-inset-top))",
               paddingBottom: "max(10px, env(safe-area-inset-bottom))",
             }}
