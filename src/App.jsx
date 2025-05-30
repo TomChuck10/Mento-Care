@@ -12,6 +12,16 @@ import { useIsMobile } from "./hooks/useIsMobile";
 function App() {
   const isMobile = useIsMobile();
 
+  // Dodaj to do głównego pliku JavaScript lub w komponencie App
+  function setVhVariable() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+
+  // Wywołaj przy wczytywaniu i zmianie rozmiaru okna
+  window.addEventListener("load", setVhVariable);
+  window.addEventListener("resize", setVhVariable);
+
   return (
     <>
       <Navbar />
@@ -104,6 +114,11 @@ function App() {
           <section
             id="about"
             className="snap-start h-screen w-full relative px-6 py-10 flex flex-col"
+            style={{
+              minHeight: "100vh",
+              paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+            }}
           >
             <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
               {/* Social Icons */}
@@ -276,6 +291,11 @@ function App() {
           <section
             id="services"
             className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
+            style={{
+              minHeight: "100vh",
+              paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+            }}
           >
             {/* Background Image */}
             <img
@@ -562,6 +582,11 @@ function App() {
           <section
             id="pricing"
             className="snap-start h-screen w-full relative px-6 py-10"
+            style={{
+              minHeight: "100vh",
+              paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+            }}
           >
             <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
               <h2
