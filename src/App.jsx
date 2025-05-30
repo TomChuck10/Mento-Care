@@ -116,8 +116,8 @@ function App() {
             className="snap-start h-screen w-full relative px-6 py-10 flex flex-col"
             style={{
               minHeight: "100dvh",
-              paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
             }}
           >
             <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
@@ -293,8 +293,8 @@ function App() {
             className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
             style={{
               minHeight: "100dvh",
-              paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
             }}
           >
             {/* Background Image */}
@@ -584,8 +584,8 @@ function App() {
             className="snap-start h-screen w-full relative px-6 py-10"
             style={{
               minHeight: "100dvh",
-              paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
             }}
           >
             <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
