@@ -17,16 +17,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  --vh: 1vh;
-}
-
-@media screen and (max-width: 768px) {
-  .snap-start {
-    height: calc(var(--vh) * 100);
-  }
-}
-
 /* a {
 	font-weight: 500;
 	color: #646cff;

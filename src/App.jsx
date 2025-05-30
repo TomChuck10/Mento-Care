@@ -12,16 +12,6 @@ import { useIsMobile } from "./hooks/useIsMobile";
 function App() {
   const isMobile = useIsMobile();
 
-  // Dodaj to do głównego pliku JavaScript lub w komponencie App
-  function setVhVariable() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  }
-
-  // Wywołaj przy wczytywaniu i zmianie rozmiaru okna
-  window.addEventListener("load", setVhVariable);
-  window.addEventListener("resize", setVhVariable);
-
   return (
     <>
       <Navbar />
