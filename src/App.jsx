@@ -107,7 +107,7 @@ function App() {
             style={{
               minHeight: "100dvh",
               // paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
+              paddingBottom: "max(80px, env(safe-area-inset-bottom))",
             }}
           >
             <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
@@ -284,7 +284,7 @@ function App() {
             style={{
               minHeight: "100dvh",
               // paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
+              paddingBottom: "max(80px, env(safe-area-inset-bottom))",
             }}
           >
             {/* Background Image */}
@@ -575,7 +575,7 @@ function App() {
             style={{
               minHeight: "100dvh",
               // paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(40px, env(safe-area-inset-bottom))",
+              paddingBottom: "max(80px, env(safe-area-inset-bottom))",
             }}
           >
             <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
