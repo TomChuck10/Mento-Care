@@ -25,6 +25,8 @@ function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [consecutiveScrolls, setConsecutiveScrolls] = useState(0);
+  const [lastScrollDirection, setLastScrollDirection] = useState(null);
 
   const listOfServices = [
     {
@@ -218,32 +220,52 @@ function App() {
   const handleServiceScroll = (e) => {
     if (isScrolling) return;
 
+    e.preventDefault(); // Zapobiega domyślnemu scrollowaniu
+
+    const scrollDirection = e.deltaY > 0 ? "down" : "up";
+
+    // Sprawdź czy kierunek się zmienił
+    if (lastScrollDirection !== scrollDirection) {
+      setConsecutiveScrolls(1);
+      setLastScrollDirection(scrollDirection);
+    } else {
+      setConsecutiveScrolls((prev) => prev + 1);
+    }
+
     setIsScrolling(true);
 
-    if (e.deltaY > 0) {
+    if (scrollDirection === "down") {
       // Scroll down - next service or next section
       if (currentServiceIndex < listOfServices.length - 1) {
         setCurrentServiceIndex((prev) => prev + 1);
+        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // If on last service, scroll to next section (pricing)
-        document.getElementById("pricing")?.scrollIntoView({
-          behavior: "smooth",
-        });
+        // Wymaga 3 kolejnych scroli w dół żeby przejść do pricing
+        if (consecutiveScrolls >= 3) {
+          document.getElementById("pricing")?.scrollIntoView({
+            behavior: "smooth",
+          });
+          setConsecutiveScrolls(0);
+        }
       }
     } else {
       // Scroll up - previous service or previous section
       if (currentServiceIndex > 0) {
         setCurrentServiceIndex((prev) => prev - 1);
+        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // If on first service, scroll to previous section (about)
-        document.getElementById("about")?.scrollIntoView({
-          behavior: "smooth",
-        });
+        // Wymaga 3 kolejnych scroli w górę żeby przejść do about
+        if (consecutiveScrolls >= 3) {
+          document.getElementById("about")?.scrollIntoView({
+            behavior: "smooth",
+          });
+          setConsecutiveScrolls(0);
+        }
       }
     }
 
-    // Debounce scrolling
-    setTimeout(() => setIsScrolling(false), 300);
+    // Krótszy debounce dla płynniejszego działania
+    setTimeout(() => setIsScrolling(false), 150);
   };
 
   // Handle dot click navigation
@@ -251,7 +273,7 @@ function App() {
     setCurrentServiceIndex(index);
   };
 
-  // Handle touch events for mobile
+  // Handle touch events for mobile - zwiększona wrażliwość
   const handleTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
@@ -265,29 +287,58 @@ function App() {
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
-    const isUpSwipe = distance > 50;
-    const isDownSwipe = distance < -50;
+    // Zmniejszona wrażliwość - wystarczy 30px zamiast 50px
+    const isUpSwipe = distance > 30;
+    const isDownSwipe = distance < -30;
 
     if (isUpSwipe) {
+      const swipeDirection = "up";
+
+      // Sprawdź czy kierunek się zmienił
+      if (lastScrollDirection !== swipeDirection) {
+        setConsecutiveScrolls(1);
+        setLastScrollDirection(swipeDirection);
+      } else {
+        setConsecutiveScrolls((prev) => prev + 1);
+      }
+
       // Swipe up - next service or next section
       if (currentServiceIndex < listOfServices.length - 1) {
         setCurrentServiceIndex((prev) => prev + 1);
+        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // If on last service, scroll to next section (pricing)
-        document.getElementById("pricing")?.scrollIntoView({
-          behavior: "smooth",
-        });
+        // Wymaga 2 kolejnych swipe'ów w górę żeby przejść do pricing
+        if (consecutiveScrolls >= 2) {
+          document.getElementById("pricing")?.scrollIntoView({
+            behavior: "smooth",
+          });
+          setConsecutiveScrolls(0);
+        }
       }
     }
     if (isDownSwipe) {
+      const swipeDirection = "down";
+
+      // Sprawdź czy kierunek się zmienił
+      if (lastScrollDirection !== swipeDirection) {
+        setConsecutiveScrolls(1);
+        setLastScrollDirection(swipeDirection);
+      } else {
+        setConsecutiveScrolls((prev) => prev + 1);
+      }
+
       // Swipe down - previous service or previous section
       if (currentServiceIndex > 0) {
         setCurrentServiceIndex((prev) => prev - 1);
+        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // If on first service, scroll to previous section (about)
-        document.getElementById("about")?.scrollIntoView({
-          behavior: "smooth",
-        });
+        // Wymaga 2 kolejnych swipe'ów w dół żeby przejść do about
+        if (consecutiveScrolls >= 2) {
+          document.getElementById("about")?.scrollIntoView({
+            behavior: "smooth",
+          });
+          setConsecutiveScrolls(0);
+        }
       }
     }
   };
