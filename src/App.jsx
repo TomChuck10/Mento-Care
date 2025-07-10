@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 import FacebookLogo from "./assets/facebook_logo.svg";
@@ -19,66 +19,65 @@ import RytualMentoCare from "./assets/servicesPhotos/7-min.png";
 
 import { useIsMobile } from "./hooks/useIsMobile";
 
+const listOfServices = [
+  {
+    id: 1,
+    name: "Kobido",
+    description:
+      "(inaczej naturalna medycyna estetyczna) to technika masażu, która wywodzi się z Japonii i ma swoje unikalne elementy. Powolne, płynne ruchy mają na celu rozluźnienie napięć, głębokie pobudzają skórę i zapewniają efekt liftingu.",
+    image: Kobido,
+  },
+  {
+    id: 2,
+    name: "Mezoterapia Mikroigłowa",
+    description:
+      "Mezoterapia frakcyjna to innowacyjny zabieg, który pozwala na odmładzanie skóry, nawilżenie oraz redukcję oznak starzenia. Jest to jedna z odmian mezoterapii, wykorzystująca mikroigłowe nakłucia skóry twarzy",
+    image: MezoterapiaMikroiglowa,
+  },
+  {
+    id: 3,
+    name: "Mezoterapia Igłowa",
+    description:
+      "Jaki jest najlepszy zabieg na nawilżenie i odżywienie skóry? Zastrzyk młodości MEZOTERAPIA igłowa polega na wprowadzeniu w głąb skóry preparatow: Nawilżających Rozświetlających Odżywczych Regenerujących Rewitalizujących",
+    image: MezoterapiaIglowa,
+  },
+  {
+    id: 4,
+    name: "Mezoterapia Skóry Głowy",
+    description:
+      "Peptydowa terapia włosów to nowoczesny zabieg hamujący wypadanie i stymulujący odrost włosów. Sprawdza się przy łysieniu androgenowym oraz wypadaniu spowodowanym stresem, dietą, farbowaniem czy złą pielęgnacją.",
+    image: MezoterapiaSkoryGlowy,
+  },
+  {
+    id: 5,
+    name: "Stylizacja brwi",
+    description:
+      "Zabieg, który nadaje brwiom kształt, utrwala włoski i podkreśla kolor. Laminacja sprawia, że są bardziej zdyscyplinowane, a henna pudrowa zagęszcza je optycznie i nadaje im głębię. Efekt utrzymuje się przez kilka tygodni.",
+    image: StylizacjaBrwi,
+  },
+  {
+    id: 6,
+    name: "Peeling kwasowy",
+    description:
+      "Zabieg złuszczający, który intensywnie oczyszcza skórę, usuwa martwy naskórek i pobudza jej regenerację. Wyrównuje koloryt, wygładza strukturę skóry i pomaga redukować niedoskonałości, przebarwienia oraz drobne zmarszczki. Skóra staje się świeża, gładka i promienna.",
+    image: PeelingKwasowy,
+  },
+  {
+    id: 7,
+    name: "Rytuał MENTO CARE",
+    description:
+      "Autorski zabieg oparty na terapeutycznym działaniu ultradźwięków. Obejmuje demakijaż, masaż relaksacyjny, peeling kawitacyjny, sonoforezę z odżywczą ampułką oraz maskę dopasowaną do potrzeb skóry. Gwarantuje oczyszczenie, odżywienie i głęboki relaks.",
+    image: RytualMentoCare,
+  },
+];
+
 function App() {
   const isMobile = useIsMobile();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [consecutiveScrolls, setConsecutiveScrolls] = useState(0);
-  const [lastScrollDirection, setLastScrollDirection] = useState(null);
-
-  const listOfServices = [
-    {
-      id: 1,
-      name: "Kobido",
-      description:
-        "(inaczej naturalna medycyna estetyczna) to technika masażu, która wywodzi się z Japonii i ma swoje unikalne elementy. Powolne, płynne ruchy mają na celu rozluźnienie napięć, głębokie pobudzają skórę i zapewniają efekt liftingu.",
-      image: Kobido,
-    },
-    {
-      id: 2,
-      name: "Mezoterapia Mikroigłowa",
-      description:
-        "Mezoterapia frakcyjna to innowacyjny zabieg, który pozwala na odmładzanie skóry, nawilżenie oraz redukcję oznak starzenia. Jest to jedna z odmian mezoterapii, wykorzystująca mikroigłowe nakłucia skóry twarzy",
-      image: MezoterapiaMikroiglowa,
-    },
-    {
-      id: 3,
-      name: "Mezoterapia Igłowa",
-      description:
-        "Jaki jest najlepszy zabieg na nawilżenie i odżywienie skóry? Zastrzyk młodości MEZOTERAPIA igłowa polega na wprowadzeniu w głąb skóry preparatow: Nawilżających Rozświetlających Odżywczych Regenerujących Rewitalizujących",
-      image: MezoterapiaIglowa,
-    },
-    {
-      id: 4,
-      name: "Mezoterapia Skóry Głowy",
-      description:
-        "Peptydowa terapia włosów to nowoczesny zabieg hamujący wypadanie i stymulujący odrost włosów. Sprawdza się przy łysieniu androgenowym oraz wypadaniu spowodowanym stresem, dietą, farbowaniem czy złą pielęgnacją.",
-      image: MezoterapiaSkoryGlowy,
-    },
-    {
-      id: 5,
-      name: "Stylizacja brwi",
-      description:
-        "Zabieg, który nadaje brwiom kształt, utrwala włoski i podkreśla kolor. Laminacja sprawia, że są bardziej zdyscyplinowane, a henna pudrowa zagęszcza je optycznie i nadaje im głębię. Efekt utrzymuje się przez kilka tygodni.",
-      image: StylizacjaBrwi,
-    },
-    {
-      id: 6,
-      name: "Peeling kwasowy",
-      description:
-        "Zabieg złuszczający, który intensywnie oczyszcza skórę, usuwa martwy naskórek i pobudza jej regenerację. Wyrównuje koloryt, wygładza strukturę skóry i pomaga redukować niedoskonałości, przebarwienia oraz drobne zmarszczki. Skóra staje się świeża, gładka i promienna.",
-      image: PeelingKwasowy,
-    },
-    {
-      id: 7,
-      name: "Rytuał MENTO CARE",
-      description:
-        "Autorski zabieg oparty na terapeutycznym działaniu ultradźwięków. Obejmuje demakijaż, masaż relaksacyjny, peeling kawitacyjny, sonoforezę z odżywczą ampułką oraz maskę dopasowaną do potrzeb skóry. Gwarantuje oczyszczenie, odżywienie i głęboki relaks.",
-      image: RytualMentoCare,
-    },
-  ];
+  const [isInServicesSection, setIsInServicesSection] = useState(false);
 
   const priceData = [
     {
@@ -223,14 +222,7 @@ function App() {
     e.preventDefault(); // Zapobiega domyślnemu scrollowaniu
 
     const scrollDirection = e.deltaY > 0 ? "down" : "up";
-
-    // Sprawdź czy kierunek się zmienił
-    if (lastScrollDirection !== scrollDirection) {
-      setConsecutiveScrolls(1);
-      setLastScrollDirection(scrollDirection);
-    } else {
-      setConsecutiveScrolls((prev) => prev + 1);
-    }
+    const currentServiceId = listOfServices[currentServiceIndex].id;
 
     setIsScrolling(true);
 
@@ -238,28 +230,24 @@ function App() {
       // Scroll down - next service or next section
       if (currentServiceIndex < listOfServices.length - 1) {
         setCurrentServiceIndex((prev) => prev + 1);
-        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // Wymaga 3 kolejnych scroli w dół żeby przejść do pricing
-        if (consecutiveScrolls >= 3) {
+        // Tylko z ostatniej usługi (id=7) można przejść do pricing
+        if (currentServiceId === 7) {
           document.getElementById("pricing")?.scrollIntoView({
             behavior: "smooth",
           });
-          setConsecutiveScrolls(0);
         }
       }
     } else {
       // Scroll up - previous service or previous section
       if (currentServiceIndex > 0) {
         setCurrentServiceIndex((prev) => prev - 1);
-        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // Wymaga 3 kolejnych scroli w górę żeby przejść do about
-        if (consecutiveScrolls >= 3) {
+        // Tylko z pierwszej usługi (id=1) można przejść do about
+        if (currentServiceId === 1) {
           document.getElementById("about")?.scrollIntoView({
             behavior: "smooth",
           });
-          setConsecutiveScrolls(0);
         }
       }
     }
@@ -287,61 +275,85 @@ function App() {
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
+    const currentServiceId = listOfServices[currentServiceIndex].id;
     // Zmniejszona wrażliwość - wystarczy 30px zamiast 50px
     const isUpSwipe = distance > 30;
     const isDownSwipe = distance < -30;
 
     if (isUpSwipe) {
-      const swipeDirection = "up";
-
-      // Sprawdź czy kierunek się zmienił
-      if (lastScrollDirection !== swipeDirection) {
-        setConsecutiveScrolls(1);
-        setLastScrollDirection(swipeDirection);
-      } else {
-        setConsecutiveScrolls((prev) => prev + 1);
-      }
-
       // Swipe up - next service or next section
       if (currentServiceIndex < listOfServices.length - 1) {
         setCurrentServiceIndex((prev) => prev + 1);
-        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // Wymaga 2 kolejnych swipe'ów w górę żeby przejść do pricing
-        if (consecutiveScrolls >= 2) {
+        // Tylko z ostatniej usługi (id=7) można przejść do pricing
+        if (currentServiceId === 7) {
           document.getElementById("pricing")?.scrollIntoView({
             behavior: "smooth",
           });
-          setConsecutiveScrolls(0);
         }
       }
     }
     if (isDownSwipe) {
-      const swipeDirection = "down";
-
-      // Sprawdź czy kierunek się zmienił
-      if (lastScrollDirection !== swipeDirection) {
-        setConsecutiveScrolls(1);
-        setLastScrollDirection(swipeDirection);
-      } else {
-        setConsecutiveScrolls((prev) => prev + 1);
-      }
-
       // Swipe down - previous service or previous section
       if (currentServiceIndex > 0) {
         setCurrentServiceIndex((prev) => prev - 1);
-        setConsecutiveScrolls(0); // Reset po zmianie usługi
       } else {
-        // Wymaga 2 kolejnych swipe'ów w dół żeby przejść do about
-        if (consecutiveScrolls >= 2) {
+        // Tylko z pierwszej usługi (id=1) można przejść do about
+        if (currentServiceId === 1) {
           document.getElementById("about")?.scrollIntoView({
             behavior: "smooth",
           });
-          setConsecutiveScrolls(0);
         }
       }
     }
   };
+
+  // Globalna funkcja obsługi scroll'a - blokuje scroll gdy jesteśmy w sekcji services
+  useEffect(() => {
+    const handleGlobalScroll = (e) => {
+      if (isInServicesSection) {
+        const currentServiceId = listOfServices[currentServiceIndex].id;
+        const scrollDirection = e.deltaY > 0 ? "down" : "up";
+
+        // Blokuj scroll jeśli nie jesteśmy na odpowiedniej usłudze
+        if (scrollDirection === "down" && currentServiceId !== 7) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+        if (scrollDirection === "up" && currentServiceId !== 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }
+    };
+
+    // Intersection Observer do wykrywania czy jesteśmy w sekcji services
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.id === "services") {
+            setIsInServicesSection(entry.isIntersecting);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      observer.observe(servicesSection);
+    }
+
+    // Dodaj event listener na wheel dla całego dokumentu
+    document.addEventListener("wheel", handleGlobalScroll, { passive: false });
+
+    return () => {
+      document.removeEventListener("wheel", handleGlobalScroll);
+      observer.disconnect();
+    };
+  }, [isInServicesSection, currentServiceIndex]);
 
   const currentService = listOfServices[currentServiceIndex];
 
