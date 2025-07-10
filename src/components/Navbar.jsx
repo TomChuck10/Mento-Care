@@ -81,7 +81,7 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex space-x-[32px] uppercase text-lg font-light">
-          <span className="cursor-pointer text-textPrimary">BLOG</span>
+          {/* <span className="cursor-pointer text-textPrimary">BLOG</span> */}
 
           <p className="text-prime cursor-pointer flex items-center gap-2">
             <span>{`>`}</span>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <li>BLOG</li>
+            {/* <li>BLOG</li> */}
             <li>
               <p className="text-prime font-bold flex justify-center items-center gap-2">
                 <span>{`>`}</span>
