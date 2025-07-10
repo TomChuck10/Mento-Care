@@ -287,17 +287,9 @@ function App() {
       } else {
         // Tylko z ostatniej usługi (id=7) można przejść do pricing
         if (currentServiceId === 7) {
-          // Przywróć scroll przed przejściem do następnej sekcji
-          document.body.style.overflow = '';
-          document.body.style.position = '';
-          document.body.style.width = '';
-          document.body.style.height = '';
-          
-          setTimeout(() => {
-            document.getElementById("pricing")?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }, 100);
+          document.getElementById("pricing")?.scrollIntoView({
+            behavior: "smooth",
+          });
         }
       }
     }
@@ -308,17 +300,9 @@ function App() {
       } else {
         // Tylko z pierwszej usługi (id=1) można przejść do about
         if (currentServiceId === 1) {
-          // Przywróć scroll przed przejściem do poprzedniej sekcji
-          document.body.style.overflow = '';
-          document.body.style.position = '';
-          document.body.style.width = '';
-          document.body.style.height = '';
-          
-          setTimeout(() => {
-            document.getElementById("about")?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }, 100);
+          document.getElementById("about")?.scrollIntoView({
+            behavior: "smooth",
+          });
         }
       }
     }
@@ -345,25 +329,51 @@ function App() {
       }
     };
 
+    // Globalna obsługa touch events dla mobile
+    let globalTouchStart = null;
+    let globalTouchEnd = null;
+
+    const handleGlobalTouchStart = (e) => {
+      if (isInServicesSection) {
+        globalTouchStart = e.touches[0].clientY;
+        globalTouchEnd = null;
+      }
+    };
+
+    const handleGlobalTouchMove = (e) => {
+      if (isInServicesSection && globalTouchStart) {
+        globalTouchEnd = e.touches[0].clientY;
+
+        const distance = globalTouchStart - globalTouchEnd;
+        const currentServiceId = listOfServices[currentServiceIndex].id;
+        const isUpSwipe = distance > 30;
+        const isDownSwipe = distance < -30;
+
+        // Blokuj touch move jeśli próbujemy wyjść z sekcji services
+        if (isUpSwipe && currentServiceId !== 7) {
+          // Próbujemy swipe'ować w górę (do pricing) ale nie jesteśmy na ostatniej usłudze
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        if (isDownSwipe && currentServiceId !== 1) {
+          // Próbujemy swipe'ować w dół (do about) ale nie jesteśmy na pierwszej usłudze
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+    };
+
+    const handleGlobalTouchEnd = () => {
+      globalTouchStart = null;
+      globalTouchEnd = null;
+    };
+
     // Intersection Observer do wykrywania czy jesteśmy w sekcji services
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.target.id === "services") {
             setIsInServicesSection(entry.isIntersecting);
-            
-            // Blokuj scroll na poziomie body dla mobile
-            if (entry.isIntersecting) {
-              document.body.style.overflow = 'hidden';
-              document.body.style.position = 'fixed';
-              document.body.style.width = '100%';
-              document.body.style.height = '100%';
-            } else {
-              document.body.style.overflow = '';
-              document.body.style.position = '';
-              document.body.style.width = '';
-              document.body.style.height = '';
-            }
           }
         });
       },
@@ -375,16 +385,23 @@ function App() {
       observer.observe(servicesSection);
     }
 
-    // Dodaj event listener na wheel dla desktop
+    // Dodaj event listenery dla desktop i mobile
     document.addEventListener("wheel", handleGlobalScroll, { passive: false });
+    document.addEventListener("touchstart", handleGlobalTouchStart, {
+      passive: false,
+    });
+    document.addEventListener("touchmove", handleGlobalTouchMove, {
+      passive: false,
+    });
+    document.addEventListener("touchend", handleGlobalTouchEnd, {
+      passive: false,
+    });
 
     return () => {
       document.removeEventListener("wheel", handleGlobalScroll);
-      // Przywróć normalny scroll przy cleanup
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
+      document.removeEventListener("touchstart", handleGlobalTouchStart);
+      document.removeEventListener("touchmove", handleGlobalTouchMove);
+      document.removeEventListener("touchend", handleGlobalTouchEnd);
       observer.disconnect();
     };
   }, [isInServicesSection, currentServiceIndex]);
