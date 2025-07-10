@@ -17,29 +17,41 @@ const Navbar = () => {
   useEffect(() => {
     if (location.pathname !== "/") {
       setActiveSection(null);
-      return; // Exit early if not on the homepage
+      return;
     }
 
     const options = {
-      root: null, // Use the viewport as the root
-      rootMargin: "0px",
-      threshold: 0.4, // Trigger when 40% of the section is visible
+      root: null,
+      rootMargin: "-10% 0px -10% 0px", // Adds margin to trigger earlier
+      threshold: [0, 0.1, 0.5, 0.9], // Multiple thresholds for better detection
     };
 
     const observer = new IntersectionObserver((entries) => {
+      // Find the entry with highest intersection ratio
+      let mostVisible = null;
+      let highestRatio = 0;
+
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+        if (entry.intersectionRatio > highestRatio) {
+          highestRatio = entry.intersectionRatio;
+          mostVisible = entry;
         }
       });
+
+      // Only update if we have a significantly visible section
+      if (mostVisible && mostVisible.intersectionRatio > 0.1) {
+        setActiveSection(mostVisible.target.id);
+      }
     }, options);
 
-    menus.forEach((menu) => {
-      const ids = menu.ids || [menu.id];
-      ids.forEach((id) => {
-        const element = document.getElementById(id);
-        if (element) observer.observe(element);
-      });
+    // Observe main sections
+    const sectionsToObserve = ["about", "services", "pricing"];
+
+    sectionsToObserve.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
     });
 
     // Cleanup observer on unmount

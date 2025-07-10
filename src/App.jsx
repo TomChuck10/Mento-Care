@@ -75,8 +75,6 @@ function App() {
   const isMobile = useIsMobile();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
   const [isInServicesSection, setIsInServicesSection] = useState(false);
 
   const priceData = [
@@ -261,55 +259,11 @@ function App() {
     setCurrentServiceIndex(index);
   };
 
-  // Handle touch events for mobile - zwiększona wrażliwość
-  const handleTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientY);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientY);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const currentServiceId = listOfServices[currentServiceIndex].id;
-    // Zmniejszona wrażliwość - wystarczy 30px zamiast 50px
-    const isUpSwipe = distance > 30;
-    const isDownSwipe = distance < -30;
-
-    if (isUpSwipe) {
-      // Swipe up - next service or next section
-      if (currentServiceIndex < listOfServices.length - 1) {
-        setCurrentServiceIndex((prev) => prev + 1);
-      } else {
-        // Tylko z ostatniej usługi (id=7) można przejść do pricing
-        if (currentServiceId === 7) {
-          document.getElementById("pricing")?.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
-      }
-    }
-    if (isDownSwipe) {
-      // Swipe down - previous service or previous section
-      if (currentServiceIndex > 0) {
-        setCurrentServiceIndex((prev) => prev - 1);
-      } else {
-        // Tylko z pierwszej usługi (id=1) można przejść do about
-        if (currentServiceId === 1) {
-          document.getElementById("about")?.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
-      }
-    }
-  };
-
-  // Globalna funkcja obsługi scroll'a - blokuje scroll gdy jesteśmy w sekcji services
+  // Globalna funkcja obsługi scroll'a - blokuje scroll gdy jesteśmy w sekcji services (tylko desktop)
   useEffect(() => {
+    // Tylko na desktop - blokujemy scroll w sekcji services
+    if (isMobile) return;
+
     const handleGlobalScroll = (e) => {
       if (isInServicesSection) {
         const currentServiceId = listOfServices[currentServiceIndex].id;
@@ -329,45 +283,6 @@ function App() {
       }
     };
 
-    // Globalna obsługa touch events dla mobile
-    let globalTouchStart = null;
-    let globalTouchEnd = null;
-
-    const handleGlobalTouchStart = (e) => {
-      if (isInServicesSection) {
-        globalTouchStart = e.touches[0].clientY;
-        globalTouchEnd = null;
-      }
-    };
-
-    const handleGlobalTouchMove = (e) => {
-      if (isInServicesSection && globalTouchStart) {
-        globalTouchEnd = e.touches[0].clientY;
-
-        const distance = globalTouchStart - globalTouchEnd;
-        const currentServiceId = listOfServices[currentServiceIndex].id;
-        const isUpSwipe = distance > 30;
-        const isDownSwipe = distance < -30;
-
-        // Blokuj touch move jeśli próbujemy wyjść z sekcji services
-        if (isUpSwipe && currentServiceId !== 7) {
-          // Próbujemy swipe'ować w górę (do pricing) ale nie jesteśmy na ostatniej usłudze
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        if (isDownSwipe && currentServiceId !== 1) {
-          // Próbujemy swipe'ować w dół (do about) ale nie jesteśmy na pierwszej usłudze
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }
-    };
-
-    const handleGlobalTouchEnd = () => {
-      globalTouchStart = null;
-      globalTouchEnd = null;
-    };
-
     // Intersection Observer do wykrywania czy jesteśmy w sekcji services
     const observer = new IntersectionObserver(
       (entries) => {
@@ -385,26 +300,14 @@ function App() {
       observer.observe(servicesSection);
     }
 
-    // Dodaj event listenery dla desktop i mobile
+    // Dodaj event listener tylko dla desktop
     document.addEventListener("wheel", handleGlobalScroll, { passive: false });
-    document.addEventListener("touchstart", handleGlobalTouchStart, {
-      passive: false,
-    });
-    document.addEventListener("touchmove", handleGlobalTouchMove, {
-      passive: false,
-    });
-    document.addEventListener("touchend", handleGlobalTouchEnd, {
-      passive: false,
-    });
 
     return () => {
       document.removeEventListener("wheel", handleGlobalScroll);
-      document.removeEventListener("touchstart", handleGlobalTouchStart);
-      document.removeEventListener("touchmove", handleGlobalTouchMove);
-      document.removeEventListener("touchend", handleGlobalTouchEnd);
       observer.disconnect();
     };
-  }, [isInServicesSection, currentServiceIndex]);
+  }, [isInServicesSection, currentServiceIndex, isMobile]);
 
   const currentService = listOfServices[currentServiceIndex];
 
@@ -628,7 +531,7 @@ function App() {
           </section>
         )}
 
-        {/* Second Section - Kobido Massage */}
+        {/* Second Section - Services */}
         {!isMobile ? (
           <section
             id="services"
@@ -699,81 +602,72 @@ function App() {
             ></div>
           </section>
         ) : (
-          <section
-            id="services"
-            className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
-            style={{
-              minHeight: "100dvh",
-              paddingBottom: "max(100px, env(safe-area-inset-bottom))",
-            }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Background Image */}
-            <img
-              src={currentService.image}
-              alt={currentService.name}
-              className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 transition-all duration-500"
-            />
+          // Mobile: Each service as separate section
+          <>
+            {listOfServices.map((service, index) => (
+              <section
+                key={service.id}
+                id={index === 0 ? "services" : `service-${service.id}`}
+                className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
+                style={{
+                  minHeight: "100dvh",
+                  paddingBottom: "max(100px, env(safe-area-inset-bottom))",
+                }}
+              >
+                {/* Background Image */}
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+                />
 
-            <div className="flex flex-col h-full z-20">
-              {/* Navigation dots aligned to the left */}
-              <div className="flex flex-col justify-center items-center space-y-[6px] self-start mt-20">
-                {listOfServices.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-5 h-5 border-[1px] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${
-                      index === currentServiceIndex
-                        ? "border-prime"
-                        : "border-[#FFF8E7]"
-                    }`}
-                    onClick={() => handleDotClick(index)}
-                  >
-                    {index === currentServiceIndex && (
-                      <div className="bg-prime border-prime w-3 h-3 m-auto rounded-full transition-all duration-300" />
-                    )}
+                <div className="flex flex-col h-full z-20">
+                  {/* Service indicator */}
+                  {/* <div className="flex justify-center items-center mt-20 mb-8">
+                    <span className="text-[#FFF8E7] text-sm opacity-70">
+                      {index + 1} / {listOfServices.length}
+                    </span>
+                  </div> */}
+
+                  <div className="flex flex-col items-center flex-grow justify-end">
+                    {/* Title centered */}
+                    <h2
+                      className="text-[#FFF8E7] text-[54px] mb-2 text-center"
+                      style={{
+                        fontFamily: "Cormorant Garamond, SemiBold",
+                      }}
+                    >
+                      {service.name}
+                    </h2>
+
+                    {/* Description centered */}
+                    <p className="text-[#FFF8E7] text-[13px] text-justify mb-10 max-w-xs">
+                      {service.description}
+                    </p>
+
+                    {/* Button centered */}
+                    <div className="mb-10">
+                      <a
+                        href="#"
+                        className="border-2 text-[16px] border-prime text-prime rounded-[5px] py-[14px] px-[32px] hover:bg-prime hover:text-black transition-colors duration-300"
+                      >
+                        Umów się na wizytę
+                      </a>
+                    </div>
                   </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col items-center flex-grow justify-end">
-                {/* Title centered */}
-                <h2
-                  className="text-[#FFF8E7] text-[54px] mb-2 text-center transition-all duration-500"
-                  style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
-                  }}
-                >
-                  {currentService.name}
-                </h2>
-
-                {/* Description centered */}
-                <p className="text-[#FFF8E7] text-[13px] text-justify mb-10 max-w-xs transition-all duration-500">
-                  {currentService.description}
-                </p>
-
-                {/* Button centered */}
-                <div className="mb-10">
-                  <a
-                    href="#"
-                    className="border-2 text-[16px] border-prime text-prime rounded-[5px] py-[14px] px-[32px] hover:bg-prime hover:text-black transition-colors duration-300"
-                  >
-                    Umów się na wizytę
-                  </a>
                 </div>
-              </div>
-            </div>
 
-            {/* Bottom gradient overlay */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
-              style={{
-                background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
-              }}
-            ></div>
-          </section>
+                {/* Bottom gradient overlay */}
+                <div
+                  className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+                  }}
+                ></div>
+              </section>
+            ))}
+          </>
         )}
 
         {/* Third Section - Price List */}
