@@ -328,11 +328,15 @@ function App() {
         <div className="space-y-4">
           {services.map((service, index) => (
             <div key={index} className="flex justify-between">
-              <span className={`text-[#FFF8E7] ${isMobile ? "text-sm" : ""}`}>
+              <span
+                className={`text-[#FFF8E7] font-thin ${
+                  isMobile ? "text-sm" : ""
+                }`}
+              >
                 {service.name}
               </span>
               <span
-                className={`text-[#FFF8E7] font-semibold ${
+                className={`text-[#FFF8E7] font-thin ${
                   isMobile ? "text-sm" : ""
                 }`}
               >
@@ -359,7 +363,7 @@ function App() {
               <h1
                 style={{
                   fontFamily: "Cormorant Garamond, SemiBold",
-                  fontSize: "80px",
+                  fontSize: "103px",
                   color: "#FCAF56",
                   marginBottom: "-10px",
                   marginTop: "auto",
@@ -367,7 +371,7 @@ function App() {
               >
                 MENTO CARE
               </h1>
-              <p className="max-w-[515px] text-[#FFF8E7]">
+              <p className="max-w-[675px] text-[#FFF8E7] text-[18px] font-thin">
                 wyjątkowe miejsce, gdzie profesjonalizm łączy się z komfortem i
                 indywidualnym podejściem. Diagnozujemy problemy skórne i
                 dobieramy skuteczne terapie, stawiając na slow aging – naturalne
@@ -384,7 +388,7 @@ function App() {
                 </div>
                 <div className="flex space-x-4 text-textPrimary items-center">
                   <a
-                    href="https://www.facebook.com/MentoBarberShop"
+                    href="https://www.facebook.com/p/Mento-Care-61557586307146/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -395,7 +399,7 @@ function App() {
                     />
                   </a>
                   <a
-                    href="https://www.instagram.com/mento.barbershop/"
+                    href="https://www.instagram.com/mento.care/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -406,7 +410,7 @@ function App() {
                     />
                   </a>
                   <a
-                    href="https://www.tiktok.com/@mento_barbershop"
+                    href="https://www.tiktok.com/@mento.care"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -426,10 +430,10 @@ function App() {
               style={{ bottom: -100 }}
             />
             <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
+              className="absolute bottom-0 left-0 w-full h-[32%] pointer-events-none z-10"
               style={{
                 background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 30%, #0B0C0F 90%)",
               }}
             ></div>
           </section>
@@ -495,7 +499,7 @@ function App() {
                 </h1>
 
                 {/* Description */}
-                <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-6">
+                <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-6 font-thin">
                   wyjątkowe miejsce, gdzie profesjonalizm łączy się z komfortem
                   i indywidualnym podejściem. Diagnozujemy problemy skórne i
                   dobieramy skuteczne terapie, stawiając na slow aging –
@@ -517,12 +521,12 @@ function App() {
               src={Girl}
               alt="background photo"
               className="absolute right-0 w-[100%] h-auto pointer-events-none z-0"
-              style={{ bottom: 60 }}
+              style={{ bottom: 160 }}
             />
 
             {/* Bottom gradient overlay */}
             <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
+              className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 10%, #0B0C0F 50%)",
@@ -554,17 +558,18 @@ function App() {
                     className="text-[#FFF8E7] text-[72px] transition-all duration-500"
                     style={{
                       fontFamily: "Cormorant Garamond, SemiBold",
+                      lineHeight: 1.2,
                     }}
                   >
                     {currentService.name}
                   </h2>
-                  <p className="text-[#FFF8E7] text-[18px] transition-all duration-500">
+                  <p className="text-[#FFF8E7] text-[18px] transition-all duration-500 font-thin">
                     {currentService.description}
                   </p>
                   <div className="mt-[48px]">
                     <a
                       href="#"
-                      className="border-2 text-[18px] border-prime text-prime rounded-[5px] py-[16px] px-[48px] hover:bg-prime hover:text-black transition-colors duration-300"
+                      className="border-2 text-[18px] border-prime hover:border-[#976934] text-prime rounded-[5px] py-[16px] px-[48px] hover:bg-[#976934] hover:text-black transition-colors duration-300"
                     >
                       Umów się na wizytę
                     </a>
@@ -598,6 +603,13 @@ function App() {
               style={{
                 background:
                   "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+              }}
+            ></div>
+            <div
+              className="absolute top-0 left-0 w-full h-[15%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 50%, #0B0C0F 90%)",
               }}
             ></div>
           </section>
@@ -635,13 +647,14 @@ function App() {
                       className="text-[#FFF8E7] text-[54px] mb-2 text-center"
                       style={{
                         fontFamily: "Cormorant Garamond, SemiBold",
+                        lineHeight: 1.2,
                       }}
                     >
                       {service.name}
                     </h2>
 
                     {/* Description centered */}
-                    <p className="text-[#FFF8E7] text-[13px] text-justify mb-10 max-w-xs">
+                    <p className="text-[#FFF8E7] text-[13px] text-justify mb-10 max-w-xs font-thin">
                       {service.description}
                     </p>
 

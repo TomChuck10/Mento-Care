@@ -63,11 +63,13 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-20">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="logo cursor-pointer h-[60px] md:h-[100px] md:mt-[40px]"
-          />
+          <a href="/#about">
+            <img
+              src={Logo}
+              alt="Logo"
+              className="logo cursor-pointer h-[60px] md:h-[100px] md:mt-[40px]"
+            />
+          </a>
         </div>
 
         {/* Desktop Links */}
@@ -99,7 +101,7 @@ const Navbar = () => {
             <span>{`>`}</span>
             <span>
               <a
-                href="https://booksy.com/pl-pl/118318_mento-barber-shop_barber-shop_10189_bochnia#ba_s=seo"
+                href="https://booksy.com/pl-pl/221086_kosmetologia-estetyczna-faustyna-hojnor_salon-kosmetyczny_10189_bochnia"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -145,7 +147,7 @@ const Navbar = () => {
                 <span>{`>`}</span>
                 <span>
                   <a
-                    href="https://booksy.com/pl-pl/118318_mento-barber-shop_barber-shop_10189_bochnia#ba_s=seo"
+                    href="https://booksy.com/pl-pl/221086_kosmetologia-estetyczna-faustyna-hojnor_salon-kosmetyczny_10189_bochnia"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
