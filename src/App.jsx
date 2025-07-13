@@ -6,6 +6,7 @@ import InstagramLogo from "./assets/instagram_logo.svg";
 import TikTokLogo from "./assets/tiktok_logo.svg";
 import Girl from "./assets/girl_main_page.png";
 import PriceListPhoto from "./assets/cennik.png";
+import Gradient from "./assets/gradient.svg";
 import Navbar from "./components/Navbar";
 
 // Services Images
@@ -424,6 +425,12 @@ function App() {
               </div>
             </div>
             <img
+              src={Gradient}
+              alt="Gradient"
+              className="absolute top-0 right-0 w-[75%] h-auto pointer-events-none z-0"
+              style={{ top: -400, right: -280 }}
+            />
+            <img
               src={Girl}
               alt="background photo"
               className="absolute right-0 w-[40%] h-auto pointer-events-none z-10"
@@ -523,7 +530,6 @@ function App() {
               className="absolute right-0 w-[100%] h-auto pointer-events-none z-0"
               style={{ bottom: 160 }}
             />
-
             {/* Bottom gradient overlay */}
             <div
               className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
@@ -550,10 +556,10 @@ function App() {
             />
 
             {/* Content container */}
-            <div className="px-[98px] z-20 relative">
+            <div className="px-[98px] z-20 relative w-full">
               <div className="flex flex-row items-end justify-between">
-                {/* Text content */}
-                <div className="md:w-1/2 md:pr-12">
+                {/* Text content - stała szerokość zamiast md:w-1/2 */}
+                <div className="w-[800px] pr-12">
                   <h2
                     className="text-[#FFF8E7] text-[72px] transition-all duration-500"
                     style={{
@@ -576,8 +582,8 @@ function App() {
                   </div>
                 </div>
 
-                {/* Navigation dots */}
-                <div className="flex flex-col space-y-[6px]">
+                {/* Navigation dots - zawsze w tej samej pozycji */}
+                <div className="flex flex-col space-y-[6px] flex-shrink-0">
                   {listOfServices.map((_, index) => (
                     <div
                       key={index}
