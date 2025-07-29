@@ -8,68 +8,160 @@ import Girl from "./assets/girl_main_page.png";
 import PriceListPhoto from "./assets/cennik.png";
 import Gradient from "./assets/gradient.svg";
 import Navbar from "./components/Navbar";
+import Girl2 from "./assets/about-me.png";
+import Przed1 from "./assets/przed1.png";
+import Po1 from "./assets/po1.png";
+import Voucher from "./assets/voucher.png";
 
 // Services Images
 import Kobido from "./assets/servicesPhotos/uslugi-kobido.png";
 import MezoterapiaMikroiglowa from "./assets/servicesPhotos/2-min.png";
 import MezoterapiaIglowa from "./assets/servicesPhotos/3-min.png";
 import MezoterapiaSkoryGlowy from "./assets/servicesPhotos/4-min.png";
-import StylizacjaBrwi from "./assets/servicesPhotos/5-min.png";
+// import StylizacjaBrwi from "./assets/servicesPhotos/5-min.png";
 import PeelingKwasowy from "./assets/servicesPhotos/6-min.png";
 import RytualMentoCare from "./assets/servicesPhotos/7-min.png";
+import LampaLED from "./assets/servicesPhotos/lampa-led.png";
+import DlaNiego from "./assets/servicesPhotos/dla-niego.png";
+import Konsultacja from "./assets/servicesPhotos/konsultacja.png";
+import Rytulal from "./assets/servicesPhotos/rytual.png";
 
 import { useIsMobile } from "./hooks/useIsMobile";
 
 const listOfServices = [
   {
     id: 1,
-    name: "Kobido",
+    name: "Konsultacja kosmetologiczna",
     description:
-      "(inaczej naturalna medycyna estetyczna) to technika masażu, która wywodzi się z Japonii i ma swoje unikalne elementy. Powolne, płynne ruchy mają na celu rozluźnienie napięć, głębokie pobudzają skórę i zapewniają efekt liftingu.",
-    image: Kobido,
+      "to moment, w którym poznajemy Twoją skórę i jej potrzeby. Wspólnie wypełniamy kartę klienta, rozmawiamy o pielęgnacji, stylu życia i oczekiwaniach. Przeprowadzamy analizę skóry, która pozwala dobrać bezpieczne i skuteczne zabiegi oraz odpowiednią pielęgnację domową – dopasowaną tylko do Ciebie",
+    image: Konsultacja,
   },
   {
     id: 2,
-    name: "Mezoterapia Mikroigłowa",
+    name: "Terapia trądzikowa",
     description:
-      "Mezoterapia frakcyjna to innowacyjny zabieg, który pozwala na odmładzanie skóry, nawilżenie oraz redukcję oznak starzenia. Jest to jedna z odmian mezoterapii, wykorzystująca mikroigłowe nakłucia skóry twarzy",
-    image: MezoterapiaMikroiglowa,
-  },
-  {
-    id: 3,
-    name: "Mezoterapia Igłowa",
-    description:
-      "Jaki jest najlepszy zabieg na nawilżenie i odżywienie skóry? Zastrzyk młodości MEZOTERAPIA igłowa polega na wprowadzeniu w głąb skóry preparatow: Nawilżających Rozświetlających Odżywczych Regenerujących Rewitalizujących",
+      "to kompleksowe podejście do skóry problematycznej, oparte na działaniu wielokierunkowym. Skutecznie oczyszcza pory, reguluje wydzielanie sebum i zatrzymuje stany zapalne. Rozjaśnia przebarwienia pozapalne, wygładza strukturę skóry i redukuje blizny potrądzikowe. To indywidualnie dobrana pielęgnacja, która przywraca skórze równowagę, świeżość i komfort",
     image: MezoterapiaIglowa,
   },
   {
-    id: 4,
-    name: "Mezoterapia Skóry Głowy",
+    id: 3,
+    name: "Stymulatory tkankowe",
     description:
-      "Peptydowa terapia włosów to nowoczesny zabieg hamujący wypadanie i stymulujący odrost włosów. Sprawdza się przy łysieniu androgenowym oraz wypadaniu spowodowanym stresem, dietą, farbowaniem czy złą pielęgnacją.",
+      "to zabiegi, które pobudzają skórę do intensywnej regeneracji i odbudowy, poprawiając jej jędrność, gładkość i elastyczność. Działają głęboko, aktywując produkcję kolagenu i elastyny – bez przerysowanego efektu.Idealne rozwiązanie dla tych, którzy cenią sobie świeży i młodzieńczy wygląd.",
     image: MezoterapiaSkoryGlowy,
   },
   {
-    id: 5,
-    name: "Stylizacja brwi",
+    id: 4,
+    name: "Mezoterapia igłowa",
     description:
-      "Zabieg, który nadaje brwiom kształt, utrwala włoski i podkreśla kolor. Laminacja sprawia, że są bardziej zdyscyplinowane, a henna pudrowa zagęszcza je optycznie i nadaje im głębię. Efekt utrzymuje się przez kilka tygodni.",
-    image: StylizacjaBrwi,
+      "to najlepszy sposób na intensywne odżywienie i nawilżenie skóry od wewnątrz. Poprzez drobne wkłucia dostarczane są koktajle pełne witamin, kwasu hialuronowego i składników aktywnych. Zabieg poprawia koloryt, wygładza i przywraca cerze blask. To idealna terapia dla skóry zmęczonej, odwodnionej lub pozbawionej życia.",
+    image: MezoterapiaMikroiglowa,
+  },
+  {
+    id: 5,
+    name: "Mezoterapia mikroigłowa",
+    description:
+      "to zabieg, który pobudza skórę do intensywnej regeneracji poprzez mikronakłucia. Poprawia napięcie, strukturę i koloryt skóry, a drobne zmarszczki, blizny oraz rozszerzone pory zostają zredukowane. Efektem jest gładsza, jędrniejsza i wyraźnie odświeżona cera. To najlepsza metoda na poprawę jakości skóry w naturalny sposób.",
+    image: MezoterapiaIglowa,
   },
   {
     id: 6,
-    name: "Peeling kwasowy",
+    name: "BTX",
     description:
-      "Zabieg złuszczający, który intensywnie oczyszcza skórę, usuwa martwy naskórek i pobudza jej regenerację. Wyrównuje koloryt, wygładza strukturę skóry i pomaga redukować niedoskonałości, przebarwienia oraz drobne zmarszczki. Skóra staje się świeża, gładka i promienna.",
+      "to szybki i mało inwazyjny sposób na wygładzenie zmarszczek mimicznych. Zabieg relaksuje wybrane mięśnie twarzy, dzięki czemu cera wygląda na młodszą i wypoczętą. Efekt jest naturalny i zauważalny już po kilku dniach. Idealne rozwiązanie na lwią zmarszczkę, kurze łapki i poziome linie na czole.",
     image: PeelingKwasowy,
   },
   {
     id: 7,
-    name: "Rytuał MENTO CARE",
+    name: "Peeling kwasowy",
     description:
-      "Autorski zabieg oparty na terapeutycznym działaniu ultradźwięków. Obejmuje demakijaż, masaż relaksacyjny, peeling kawitacyjny, sonoforezę z odżywczą ampułką oraz maskę dopasowaną do potrzeb skóry. Gwarantuje oczyszczenie, odżywienie i głęboki relaks.",
+      "to skuteczna metoda złuszczania martwego naskórka i odświeżenia skóry. Pomagają w redukcji stanów zapalnych, przebarwień, zaskórników i drobnych zmarszczek. Skóra po zabiegu staje się gładsza, jaśniejsza i bardziej promienna. To doskonały wybór dla osób, które chcą poprawić kondycję cery i nadać jej zdrowy blask.",
+    image: PeelingKwasowy,
+  },
+  {
+    id: 8,
+    name: "Lampa LED",
+    description:
+      "Lampa Celluma Pro wykorzystuje światło LED (niebieskie, czerwone i podczerwone), by wspierać regenerację skóry i łagodzić stany zapalne. Pomaga w leczeniu trądziku, wygładza zmarszczki, przyspiesza gojenie i stymuluje produkcję kolagenu. Idealna jako osobna terapia lub uzupełnienie innych zabiegów.",
+    image: LampaLED,
+  },
+  {
+    id: 9,
+    name: "Dla niego",
+    description:
+      "Zabiegi stworzone z myślą o męskich potrzebach: oczyszczający Męski Detox Twarzy, który odświeża i przywraca równowagę, rytuał Pan Młody – idealny przed ważnym wydarzeniem, oraz terapie przeciw wypadaniu włosów, wzmacniające cebulki i stymulujące porost. Skuteczna pielęgnacja – konkretnie, profesjonalnie i bez kompromisów.",
+    image: DlaNiego,
+  },
+  {
+    id: 10,
+    name: "Masaż Kobido",
+    description:
+      "Kobido to japoński masaż liftingujący, który łączy relaks z widocznym efektem odmłodzenia. Poprawia krążenie, napięcie mięśni i owal twarzy, wygładzając drobne zmarszczki. Skóra staje się promienna, jędrna i pełna blasku.Idealny dla osób ceniących naturalne i nieinwazyjne metody pielęgnacji.",
+    image: Kobido,
+  },
+  {
+    id: 11,
+    name: "Head SPA",
+    description:
+      "przyjemność zamknięta w dotyku, zapachu i dźwięku. Ciepła woda, aromatyczne olejki i powolny masaż skóry głowy pomagają wyciszyć umysł i rozluźnić ciało. Zabieg koi napięcia, poprawia krążenie, pielęgnuje włosy i skórę głowy. To błogi moment tylko dla Ciebie – spokojny, miękki i pełen relaksu.",
     image: RytualMentoCare,
   },
+  {
+    id: 12,
+    name: "Autorskie rytuały pielęgnacyjne",
+    description:
+      "to wyjątkowe zabiegi tworzone z myślą o potrzebach Twojej skóry i chwili dla siebie. Łączą starannie dobrane etapy oczyszczania, masażu i odżywienia w jedną, spójną całość. To nie tylko pielęgnacja, ale też głęboki relaks i regeneracja dla ciała i zmysłów. Każdy rytuał dopasowuję indywidualnie – z troską, uważnością i intuicją.",
+    image: Rytulal,
+  },
+  // {
+  //   id: 1,
+  //   name: "Kobido",
+  //   description:
+  //     "(inaczej naturalna medycyna estetyczna) to technika masażu, która wywodzi się z Japonii i ma swoje unikalne elementy. Powolne, płynne ruchy mają na celu rozluźnienie napięć, głębokie pobudzają skórę i zapewniają efekt liftingu.",
+  //   image: Kobido,
+  // },
+  // {
+  //   id: 2,
+  //   name: "Mezoterapia Mikroigłowa",
+  //   description:
+  //     "Mezoterapia frakcyjna to innowacyjny zabieg, który pozwala na odmładzanie skóry, nawilżenie oraz redukcję oznak starzenia. Jest to jedna z odmian mezoterapii, wykorzystująca mikroigłowe nakłucia skóry twarzy",
+  //   image: MezoterapiaMikroiglowa,
+  // },
+  // {
+  //   id: 3,
+  //   name: "Mezoterapia Igłowa",
+  //   description:
+  //     "Jaki jest najlepszy zabieg na nawilżenie i odżywienie skóry? Zastrzyk młodości MEZOTERAPIA igłowa polega na wprowadzeniu w głąb skóry preparatow: Nawilżających Rozświetlających Odżywczych Regenerujących Rewitalizujących",
+  //   image: MezoterapiaIglowa,
+  // },
+  // {
+  //   id: 4,
+  //   name: "Mezoterapia Skóry Głowy",
+  //   description:
+  //     "Peptydowa terapia włosów to nowoczesny zabieg hamujący wypadanie i stymulujący odrost włosów. Sprawdza się przy łysieniu androgenowym oraz wypadaniu spowodowanym stresem, dietą, farbowaniem czy złą pielęgnacją.",
+  //   image: MezoterapiaSkoryGlowy,
+  // },
+  // {
+  //   id: 5,
+  //   name: "Stylizacja brwi",
+  //   description:
+  //     "Zabieg, który nadaje brwiom kształt, utrwala włoski i podkreśla kolor. Laminacja sprawia, że są bardziej zdyscyplinowane, a henna pudrowa zagęszcza je optycznie i nadaje im głębię. Efekt utrzymuje się przez kilka tygodni.",
+  //   image: StylizacjaBrwi,
+  // },
+  // {
+  //   id: 6,
+  //   name: "Peeling kwasowy",
+  //   description:
+  //     "Zabieg złuszczający, który intensywnie oczyszcza skórę, usuwa martwy naskórek i pobudza jej regenerację. Wyrównuje koloryt, wygładza strukturę skóry i pomaga redukować niedoskonałości, przebarwienia oraz drobne zmarszczki. Skóra staje się świeża, gładka i promienna.",
+  //   image: PeelingKwasowy,
+  // },
+  // {
+  //   id: 7,
+  //   name: "Rytuał MENTO CARE",
+  //   description:
+  //     "Autorski zabieg oparty na terapeutycznym działaniu ultradźwięków. Obejmuje demakijaż, masaż relaksacyjny, peeling kawitacyjny, sonoforezę z odżywczą ampułką oraz maskę dopasowaną do potrzeb skóry. Gwarantuje oczyszczenie, odżywienie i głęboki relaks.",
+  //   image: RytualMentoCare,
+  // },
 ];
 
 function App() {
@@ -230,9 +322,9 @@ function App() {
       if (currentServiceIndex < listOfServices.length - 1) {
         setCurrentServiceIndex((prev) => prev + 1);
       } else {
-        // Tylko z ostatniej usługi (id=7) można przejść do pricing
-        if (currentServiceId === 7) {
-          document.getElementById("pricing")?.scrollIntoView({
+        // Tylko z ostatniej usługi (id=7) można przejść do about-me
+        if (currentServiceId === 12) {
+          document.getElementById("about-me")?.scrollIntoView({
             behavior: "smooth",
           });
         }
@@ -271,7 +363,7 @@ function App() {
         const scrollDirection = e.deltaY > 0 ? "down" : "up";
 
         // Blokuj scroll jeśli nie jesteśmy na odpowiedniej usłudze
-        if (scrollDirection === "down" && currentServiceId !== 7) {
+        if (scrollDirection === "down" && currentServiceId !== 12) {
           e.preventDefault();
           e.stopPropagation();
           return false;
@@ -447,7 +539,7 @@ function App() {
         ) : (
           <section
             id="about"
-            className="snap-start h-screen w-full relative px-6 py-10 flex flex-col"
+            className="snap-start h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
             style={{
               minHeight: "100dvh",
               // paddingTop: "max(10px, env(safe-area-inset-top))",
@@ -527,9 +619,23 @@ function App() {
             <img
               src={Girl}
               alt="background photo"
-              className="absolute right-0 w-[100%] h-auto pointer-events-none z-0"
+              className="absolute right-0 w-[100%] h-auto pointer-events-none z-10"
               style={{ bottom: 160 }}
             />
+            // ...existing code...
+            {/* <img
+              src={Gradient}
+              alt="Gradient"
+              className="absolute pointer-events-none z-0"
+              style={{
+                top: -500,
+                right: -200,
+                // width: "2000px", // konkretna wartość w pikselach
+                height: "auto",
+                minWidth: "200vw", // backup z viewport units
+              }}
+            /> */}
+            // ...existing code...
             {/* Bottom gradient overlay */}
             <div
               className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
@@ -689,6 +795,109 @@ function App() {
           </>
         )}
 
+        {/*About Me*/}
+        {!isMobile ? (
+          <section
+            id="about-me"
+            className="snap-start h-screen w-full overflow-hidden relative"
+          >
+            <div className="h-full flex flex-col justify-center items-end">
+              <div className="flex flex-col justify-center items-start px-[98px]">
+                <h1
+                  style={{
+                    fontFamily: "Cormorant Garamond, SemiBold",
+                    fontSize: "72px",
+                    color: "#FFF8E7",
+                    marginBottom: "-10px",
+                    marginTop: "auto",
+                  }}
+                >
+                  Faustyna Hojnor
+                </h1>
+                <p className="max-w-[675px] text-[#FFF8E7] text-[18px] font-thin">
+                  Dyplomowana kosmetolog estetyczna | Właścicielka Mento Care |
+                  Studentka pielęgniarstwa Z pasją łączę nowoczesną kosmetologię
+                  z holistycznym podejściem do skóry. Specjalizuję się w
+                  zabiegach iniekcyjnych, podkreślając naturalne piękno.
+                  Nieustannie rozwijam się zawodowo i medycznie, dbając o
+                  bezpieczeństwo i skuteczność terapii. Pracuję na
+                  certyfikowanych produktach, oferując komfort, precyzję i
+                  indywidualne podejście.
+                </p>
+              </div>
+            </div>
+            <img
+              src={Gradient}
+              alt="Gradient"
+              className="absolute top-0 right-0 w-[90%] h-auto pointer-events-none z-0"
+              style={{ top: -700, right: 150 }}
+            />
+            <img
+              src={Girl2}
+              alt="background photo"
+              className="absolute left-20 w-[31%] h-auto pointer-events-none z-10"
+              style={{ bottom: -200 }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[32%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 30%, #0B0C0F 90%)",
+              }}
+            ></div>
+          </section>
+        ) : (
+          <section
+            id="about-me"
+            className="snap-start h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
+            style={{
+              minHeight: "100dvh",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(100px, env(safe-area-inset-bottom))",
+            }}
+          >
+            <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
+              <div className="flex flex-col items-center text-center">
+                {/* Title */}
+                <h1
+                  style={{
+                    fontFamily: "Cormorant Garamond, SemiBold",
+                    fontSize: "50px",
+                    color: "#FFF8E7",
+                    marginBottom: 6,
+                  }}
+                >
+                  Faustyna Hojnor
+                </h1>
+
+                {/* Description */}
+                <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-0 font-thin">
+                  Dyplomowana kosmetolog estetyczna | Właścicielka Mento Care |
+                  Studentka pielęgniarstwa Z pasją łączę nowoczesną kosmetologię
+                  z holistycznym podejściem do skóry. Specjalizuję się w
+                  zabiegach iniekcyjnych, podkreślając naturalne piękno.
+                  Nieustannie rozwijam się zawodowo i medycznie, dbając o
+                  bezpieczeństwo i skuteczność terapii. Pracuję na
+                  certyfikowanych produktach, oferując komfort, precyzję i
+                  indywidualne podejście.
+                </p>
+              </div>
+            </div>
+            <img
+              src={Girl2}
+              alt="background photo"
+              className="absolute right-0 w-[100%] h-auto pointer-events-none z-10"
+              style={{ bottom: -50 }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 10%, #0B0C0F 50%)",
+              }}
+            ></div>
+          </section>
+        )}
         {/* Third Section - Price List */}
         {!isMobile ? (
           <section
@@ -780,6 +989,253 @@ function App() {
               }}
             ></div>
           </section>
+        )}
+
+        {/*Metamorphoses*/}
+        {!isMobile ? (
+          <section
+            id="metamorphoses"
+            className="snap-start h-screen w-full overflow-hidden relative"
+          >
+            <div className="h-full flex flex-col justify-center px-[98px]">
+              <div className="flex flex-col justify-center mt-[150px]">
+                <h1
+                  style={{
+                    fontFamily: "Cormorant Garamond, SemiBold",
+                    fontSize: "35px",
+                    color: "#FFF8E7",
+                    zIndex: 50,
+                  }}
+                >
+                  Metamorfozy
+                </h1>
+              </div>
+              <div className="flex items-center justify-between mt-10">
+                <fieldset className="mb-10 mr-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-6 px-6 pb-5 w-fit">
+                  <legend className="px-3 mx-2">
+                    <h3
+                      className={`text-[#FFF8E7] ${
+                        isMobile ? "text-[18px]" : "text-[24px]"
+                      }`}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                    >
+                      PRZED
+                    </h3>
+                  </legend>
+                  <img src={Przed1} alt="przed1" className="block" />
+                </fieldset>
+
+                <fieldset className="mb-10 ml-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-6 px-6 pb-5 w-fit">
+                  <legend className="px-3 mx-2">
+                    <h3
+                      className={`text-[#FFF8E7] ${
+                        isMobile ? "text-[18px]" : "text-[24px]"
+                      }`}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                    >
+                      PO
+                    </h3>
+                  </legend>
+                  <img src={Po1} alt="po1" className="block" />
+                </fieldset>
+              </div>
+            </div>
+            {/* <img
+              src={Gradient}
+              alt="Gradient"
+              className="absolute top-0 right-0 w-[90%] h-auto pointer-events-none z-0"
+              style={{ top: -700, right: 150 }}
+            /> */}
+            <div
+              className="absolute top-0 left-0 w-full h-[25%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 20%, #0B0C0F 80%)",
+              }}
+            ></div>
+            {/* <div
+              className="absolute bottom-0 left-0 w-full h-[32%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 30%, #0B0C0F 90%)",
+              }}
+            ></div> */}
+          </section>
+        ) : (
+          <section
+            id="metamorphoses"
+            className="snap-start h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
+            style={{
+              minHeight: "100dvh",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(100px, env(safe-area-inset-bottom))",
+            }}
+          >
+            <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
+              <div className="flex flex-col items-center text-center">
+                {/* Title */}
+                <h1
+                  style={{
+                    fontFamily: "Cormorant Garamond, SemiBold",
+                    fontSize: "50px",
+                    color: "#FFF8E7",
+                    marginBottom: 6,
+                  }}
+                >
+                  Faustyna Hojnor
+                </h1>
+
+                {/* Description */}
+                <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-0 font-thin">
+                  Dyplomowana kosmetolog estetyczna | Właścicielka Mento Care |
+                  Studentka pielęgniarstwa Z pasją łączę nowoczesną kosmetologię
+                  z holistycznym podejściem do skóry. Specjalizuję się w
+                  zabiegach iniekcyjnych, podkreślając naturalne piękno.
+                  Nieustannie rozwijam się zawodowo i medycznie, dbając o
+                  bezpieczeństwo i skuteczność terapii. Pracuję na
+                  certyfikowanych produktach, oferując komfort, precyzję i
+                  indywidualne podejście.
+                </p>
+              </div>
+            </div>
+            <img
+              src={Girl2}
+              alt="background photo"
+              className="absolute right-0 w-[100%] h-auto pointer-events-none z-10"
+              style={{ bottom: -50 }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 10%, #0B0C0F 50%)",
+              }}
+            ></div>
+          </section>
+        )}
+
+        {/* Voucher */}
+        {!isMobile ? (
+          <section
+            id="voucher"
+            className="snap-start h-screen w-full relative flex items-end pb-[98px]"
+          >
+            {/* Background Image */}
+            <img
+              src={Voucher}
+              alt="voucher"
+              className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 transition-all duration-500"
+            />
+
+            {/* Content container */}
+            <div className="px-[98px] z-20 relative w-full">
+              <div className="flex flex-row items-end justify-between">
+                {/* Text content - stała szerokość zamiast md:w-1/2 */}
+                <div className="w-[800px] pr-12">
+                  <h2
+                    className="text-[#FFF8E7] text-[72px] transition-all duration-500"
+                    style={{
+                      fontFamily: "Cormorant Garamond, SemiBold",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    Voucher
+                  </h2>
+                  <p className="text-[#FFF8E7] text-[18px] transition-all duration-500 font-thin">
+                    Prezent, który daje więcej niż rzeczy – daje emocje, piękno
+                    i spokój. Podaruj bliskiej osobie chwilę zatrzymania,
+                    odprężenia i świadomej pielęgnacji. To nie tylko zabieg – to
+                    doświadczenie, które przywraca balans, podnosi pewność
+                    siebie i pozwala poczuć się wyjątkowo. Dla niej. Dla niego.
+                    Dla każdego, kto zasługuje na moment tylko dla siebie.
+                  </p>
+                  <div className="mt-[48px]">
+                    <a
+                      href="#"
+                      className="border-2 text-[18px] border-prime hover:border-[#976934] text-prime rounded-[5px] py-[16px] px-[48px] hover:bg-[#976934] hover:text-black transition-colors duration-300"
+                    >
+                      Kup voucher
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom gradient overlay */}
+            <div
+              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+              }}
+            ></div>
+            <div
+              className="absolute top-0 left-0 w-full h-[15%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 50%, #0B0C0F 90%)",
+              }}
+            ></div>
+          </section>
+        ) : (
+          // Mobile: Each service as separate section
+          <>
+            <section
+              className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
+              style={{
+                minHeight: "100dvh",
+                paddingBottom: "max(100px, env(safe-area-inset-bottom))",
+              }}
+            >
+              {/* Background Image */}
+              <img
+                src={Voucher}
+                alt="voucher"
+                className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+              />
+
+              <div className="flex flex-col h-full z-20">
+                <div className="flex flex-col items-center flex-grow justify-end">
+                  <h2
+                    className="text-[#FFF8E7] text-[54px] mb-2 text-center"
+                    style={{
+                      fontFamily: "Cormorant Garamond, SemiBold",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    Voucher
+                  </h2>
+
+                  <p className="text-[#FFF8E7] text-[13px] text-justify mb-10 max-w-xs font-thin">
+                    Prezent, który daje więcej niż rzeczy – daje emocje, piękno
+                    i spokój. Podaruj bliskiej osobie chwilę zatrzymania,
+                    odprężenia i świadomej pielęgnacji. To nie tylko zabieg – to
+                    doświadczenie, które przywraca balans, podnosi pewność
+                    siebie i pozwala poczuć się wyjątkowo. Dla niej. Dla niego.
+                    Dla każdego, kto zasługuje na moment tylko dla siebie.
+                  </p>
+
+                  <div className="mb-10">
+                    <a
+                      href="#"
+                      className="border-2 text-[16px] border-prime text-prime rounded-[5px] py-[14px] px-[32px] hover:bg-prime hover:text-black transition-colors duration-300"
+                    >
+                      Kup voucher
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom gradient overlay */}
+              <div
+                className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+                }}
+              ></div>
+            </section>
+          </>
         )}
       </div>
     </>

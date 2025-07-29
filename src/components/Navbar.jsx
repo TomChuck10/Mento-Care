@@ -11,7 +11,10 @@ const Navbar = () => {
   const menus = [
     { name: "o nas", id: "about" },
     { name: "usługi", id: "services" },
+    { name: "o mnie", id: "about-me" },
     { name: "cennik", id: "pricing" },
+    { name: "metamorfozy", id: "metamorphoses" },
+    { name: "voucher", id: "voucher" },
   ];
 
   useEffect(() => {
@@ -45,7 +48,14 @@ const Navbar = () => {
     }, options);
 
     // Observe main sections
-    const sectionsToObserve = ["about", "services", "pricing"];
+    const sectionsToObserve = [
+      "about",
+      "services",
+      "about-me",
+      "pricing",
+      "metamorphoses",
+      "voucher",
+    ];
 
     sectionsToObserve.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
