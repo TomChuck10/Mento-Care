@@ -1081,7 +1081,7 @@ function App() {
           >
             <div className="flex flex-col h-full z-30 justify-between">
               {/* Title */}
-              <div className="flex flex-col items-center mt-4 mb-6">
+              <div className="flex flex-col items-center mt-4 mb-0">
                 <h1
                   style={{
                     fontFamily: "Cormorant Garamond, SemiBold",
@@ -1094,7 +1094,7 @@ function App() {
               </div>
 
               {/* Images in column */}
-              <div className="flex flex-col items-center space-y-4 flex-grow justify-center">
+              <div className="flex flex-col items-center space-y-2 flex-grow justify-center">
                 <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-4 pb-4 w-full max-w-xs">
                   <legend className="px-3 mx-2">
                     <h3
@@ -1107,7 +1107,7 @@ function App() {
                   <img
                     src={beforeAfterData[currentBeforeAfterIndex].before}
                     alt="przed"
-                    className="block w-full h-[180px] object-cover"
+                    className="block w-full h-[170px] object-cover"
                   />
                 </fieldset>
 
@@ -1123,13 +1123,13 @@ function App() {
                   <img
                     src={beforeAfterData[currentBeforeAfterIndex].after}
                     alt="po"
-                    className="block w-full h-[180px] object-cover"
+                    className="block w-full h-[170px] object-cover"
                   />
                 </fieldset>
               </div>
 
               {/* Navigation dots at bottom */}
-              <div className="flex flex-row justify-center items-center space-x-4 mb-4">
+              <div className="flex flex-row justify-center items-center space-x-4 mt-4">
                 {beforeAfterData.map((_, index) => (
                   <div
                     key={index}
