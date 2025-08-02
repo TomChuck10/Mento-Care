@@ -113,60 +113,12 @@ const listOfServices = [
       "to wyjątkowe zabiegi tworzone z myślą o potrzebach Twojej skóry i chwili dla siebie. Łączą starannie dobrane etapy oczyszczania, masażu i odżywienia w jedną, spójną całość. To nie tylko pielęgnacja, ale też głęboki relaks i regeneracja dla ciała i zmysłów. Każdy rytuał dopasowuję indywidualnie – z troską, uważnością i intuicją.",
     image: Rytulal,
   },
-  // {
-  //   id: 1,
-  //   name: "Kobido",
-  //   description:
-  //     "(inaczej naturalna medycyna estetyczna) to technika masażu, która wywodzi się z Japonii i ma swoje unikalne elementy. Powolne, płynne ruchy mają na celu rozluźnienie napięć, głębokie pobudzają skórę i zapewniają efekt liftingu.",
-  //   image: Kobido,
-  // },
-  // {
-  //   id: 2,
-  //   name: "Mezoterapia Mikroigłowa",
-  //   description:
-  //     "Mezoterapia frakcyjna to innowacyjny zabieg, który pozwala na odmładzanie skóry, nawilżenie oraz redukcję oznak starzenia. Jest to jedna z odmian mezoterapii, wykorzystująca mikroigłowe nakłucia skóry twarzy",
-  //   image: MezoterapiaMikroiglowa,
-  // },
-  // {
-  //   id: 3,
-  //   name: "Mezoterapia Igłowa",
-  //   description:
-  //     "Jaki jest najlepszy zabieg na nawilżenie i odżywienie skóry? Zastrzyk młodości MEZOTERAPIA igłowa polega na wprowadzeniu w głąb skóry preparatow: Nawilżających Rozświetlających Odżywczych Regenerujących Rewitalizujących",
-  //   image: MezoterapiaIglowa,
-  // },
-  // {
-  //   id: 4,
-  //   name: "Mezoterapia Skóry Głowy",
-  //   description:
-  //     "Peptydowa terapia włosów to nowoczesny zabieg hamujący wypadanie i stymulujący odrost włosów. Sprawdza się przy łysieniu androgenowym oraz wypadaniu spowodowanym stresem, dietą, farbowaniem czy złą pielęgnacją.",
-  //   image: MezoterapiaSkoryGlowy,
-  // },
-  // {
-  //   id: 5,
-  //   name: "Stylizacja brwi",
-  //   description:
-  //     "Zabieg, który nadaje brwiom kształt, utrwala włoski i podkreśla kolor. Laminacja sprawia, że są bardziej zdyscyplinowane, a henna pudrowa zagęszcza je optycznie i nadaje im głębię. Efekt utrzymuje się przez kilka tygodni.",
-  //   image: StylizacjaBrwi,
-  // },
-  // {
-  //   id: 6,
-  //   name: "Peeling kwasowy",
-  //   description:
-  //     "Zabieg złuszczający, który intensywnie oczyszcza skórę, usuwa martwy naskórek i pobudza jej regenerację. Wyrównuje koloryt, wygładza strukturę skóry i pomaga redukować niedoskonałości, przebarwienia oraz drobne zmarszczki. Skóra staje się świeża, gładka i promienna.",
-  //   image: PeelingKwasowy,
-  // },
-  // {
-  //   id: 7,
-  //   name: "Rytuał MENTO CARE",
-  //   description:
-  //     "Autorski zabieg oparty na terapeutycznym działaniu ultradźwięków. Obejmuje demakijaż, masaż relaksacyjny, peeling kawitacyjny, sonoforezę z odżywczą ampułką oraz maskę dopasowaną do potrzeb skóry. Gwarantuje oczyszczenie, odżywienie i głęboki relaks.",
-  //   image: RytualMentoCare,
-  // },
 ];
 
 function App() {
   const isMobile = useIsMobile();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [currentBeforeAfterIndex, setCurrentBeforeAfterIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isInServicesSection, setIsInServicesSection] = useState(false);
 
@@ -306,6 +258,24 @@ function App() {
     },
   ];
 
+  const beforeAfterData = [
+    {
+      id: 1,
+      before: Przed1,
+      after: Po1,
+    },
+    {
+      id: 2,
+      before: Kobido,
+      after: MezoterapiaIglowa,
+    },
+    {
+      id: 3,
+      before: MezoterapiaMikroiglowa,
+      after: PeelingKwasowy,
+    },
+  ];
+
   // Handle wheel scroll for service navigation
   const handleServiceScroll = (e) => {
     if (isScrolling) return;
@@ -350,6 +320,10 @@ function App() {
   // Handle dot click navigation
   const handleDotClick = (index) => {
     setCurrentServiceIndex(index);
+  };
+
+  const handleDotBeforeAfterClick = (index) => {
+    setCurrentBeforeAfterIndex(index);
   };
 
   // Globalna funkcja obsługi scroll'a - blokuje scroll gdy jesteśmy w sekcji services (tylko desktop)
@@ -1010,42 +984,61 @@ function App() {
                   Metamorfozy
                 </h1>
               </div>
-              <div className="flex items-center justify-between mt-10">
-                <fieldset className="mb-10 mr-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-6 px-6 pb-5 w-fit">
+              <div className="flex items-center justify-between mt-5">
+                <fieldset className="mb-10 mr-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 flex-1">
                   <legend className="px-3 mx-2">
                     <h3
                       className={`text-[#FFF8E7] ${
-                        isMobile ? "text-[18px]" : "text-[24px]"
+                        isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
                       style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
                     </h3>
                   </legend>
-                  <img src={Przed1} alt="przed1" className="block" />
+                  <img
+                    src={beforeAfterData[currentBeforeAfterIndex].before}
+                    alt="przed"
+                    className="block w-full h-[430px] object-cover"
+                  />
                 </fieldset>
 
-                <fieldset className="mb-10 ml-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-6 px-6 pb-5 w-fit">
+                <fieldset className="mb-10 ml-5 relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 flex-1">
                   <legend className="px-3 mx-2">
                     <h3
                       className={`text-[#FFF8E7] ${
-                        isMobile ? "text-[18px]" : "text-[24px]"
+                        isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
                       style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
                     </h3>
                   </legend>
-                  <img src={Po1} alt="po1" className="block" />
+                  <img
+                    src={beforeAfterData[currentBeforeAfterIndex].after}
+                    alt="po"
+                    className="block w-full h-[430px] object-cover"
+                  />
                 </fieldset>
               </div>
+              <div className="flex flex-row justify-center items-center space-x-3 flex-shrink-0 mb-10">
+                {beforeAfterData.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-5 h-5 border-[1px] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${
+                      index === currentBeforeAfterIndex
+                        ? "border-prime"
+                        : "border-[#FFF8E7] hover:border-prime"
+                    }`}
+                    onClick={() => handleDotBeforeAfterClick(index)}
+                  >
+                    {index === currentBeforeAfterIndex && (
+                      <div className="bg-prime border-prime w-3 h-3 m-auto rounded-full transition-all duration-300" />
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* <img
-              src={Gradient}
-              alt="Gradient"
-              className="absolute top-0 right-0 w-[90%] h-auto pointer-events-none z-0"
-              style={{ top: -700, right: 150 }}
-            /> */}
             <div
               className="absolute top-0 left-0 w-full h-[25%] pointer-events-none z-30"
               style={{
@@ -1053,13 +1046,6 @@ function App() {
                   "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 20%, #0B0C0F 80%)",
               }}
             ></div>
-            {/* <div
-              className="absolute bottom-0 left-0 w-full h-[32%] pointer-events-none z-10"
-              style={{
-                background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 30%, #0B0C0F 90%)",
-              }}
-            ></div> */}
           </section>
         ) : (
           <section
@@ -1067,48 +1053,106 @@ function App() {
             className="snap-start h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
             style={{
               minHeight: "100dvh",
-              // paddingTop: "max(10px, env(safe-area-inset-top))",
               paddingBottom: "max(100px, env(safe-area-inset-bottom))",
             }}
+            onTouchStart={(e) => {
+              const touch = e.touches[0];
+              e.currentTarget.startX = touch.clientX;
+            }}
+            onTouchEnd={(e) => {
+              const touch = e.changedTouches[0];
+              const deltaX = touch.clientX - e.currentTarget.startX;
+
+              if (Math.abs(deltaX) > 50) {
+                // Minimum swipe distance
+                if (deltaX > 0 && currentBeforeAfterIndex > 0) {
+                  // Swipe right - previous
+                  setCurrentBeforeAfterIndex(currentBeforeAfterIndex - 1);
+                } else if (
+                  deltaX < 0 &&
+                  currentBeforeAfterIndex < beforeAfterData.length - 1
+                ) {
+                  // Swipe left - next
+                  setCurrentBeforeAfterIndex(currentBeforeAfterIndex + 1);
+                }
+              }
+            }}
           >
-            <div className="flex flex-col items-center justify-end h-full mt-auto z-30">
-              <div className="flex flex-col items-center text-center">
-                {/* Title */}
+            <div className="flex flex-col h-full z-30">
+              {/* Title */}
+              <div className="flex flex-col items-center mt-20 mb-8">
                 <h1
                   style={{
                     fontFamily: "Cormorant Garamond, SemiBold",
-                    fontSize: "50px",
+                    fontSize: "40px",
                     color: "#FFF8E7",
-                    marginBottom: 6,
                   }}
                 >
-                  Faustyna Hojnor
+                  Metamorfozy
                 </h1>
+              </div>
 
-                {/* Description */}
-                <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-0 font-thin">
-                  Dyplomowana kosmetolog estetyczna | Właścicielka Mento Care |
-                  Studentka pielęgniarstwa Z pasją łączę nowoczesną kosmetologię
-                  z holistycznym podejściem do skóry. Specjalizuję się w
-                  zabiegach iniekcyjnych, podkreślając naturalne piękno.
-                  Nieustannie rozwijam się zawodowo i medycznie, dbając o
-                  bezpieczeństwo i skuteczność terapii. Pracuję na
-                  certyfikowanych produktach, oferując komfort, precyzję i
-                  indywidualne podejście.
-                </p>
+              {/* Images in column */}
+              <div className="flex flex-col items-center space-y-6 flex-grow justify-center mb-10">
+                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 w-full max-w-xs">
+                  <legend className="px-3 mx-2">
+                    <h3
+                      className="text-[#FFF8E7] text-[18px]"
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                    >
+                      PRZED
+                    </h3>
+                  </legend>
+                  <img
+                    src={beforeAfterData[currentBeforeAfterIndex].before}
+                    alt="przed"
+                    className="block w-full h-[200px] object-cover"
+                  />
+                </fieldset>
+
+                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 w-full max-w-xs">
+                  <legend className="px-3 mx-2">
+                    <h3
+                      className="text-[#FFF8E7] text-[18px]"
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                    >
+                      PO
+                    </h3>
+                  </legend>
+                  <img
+                    src={beforeAfterData[currentBeforeAfterIndex].after}
+                    alt="po"
+                    className="block w-full h-[200px] object-cover"
+                  />
+                </fieldset>
+              </div>
+
+              {/* Navigation dots at bottom */}
+              <div className="flex flex-row justify-center items-center space-x-4">
+                {beforeAfterData.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-5 h-5 border-[1px] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${
+                      index === currentBeforeAfterIndex
+                        ? "border-prime"
+                        : "border-[#FFF8E7] hover:border-prime"
+                    }`}
+                    onClick={() => handleDotBeforeAfterClick(index)}
+                  >
+                    {index === currentBeforeAfterIndex && (
+                      <div className="bg-prime border-prime w-3 h-3 m-auto rounded-full transition-all duration-300" />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-            <img
-              src={Girl2}
-              alt="background photo"
-              className="absolute right-0 w-[100%] h-auto pointer-events-none z-10"
-              style={{ bottom: -50 }}
-            />
+
+            {/* Top gradient overlay */}
             <div
-              className="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-10"
+              className="absolute top-0 left-0 w-full h-[10%] pointer-events-none z-10"
               style={{
                 background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 10%, #0B0C0F 50%)",
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
               }}
             ></div>
           </section>
@@ -1124,7 +1168,7 @@ function App() {
             <img
               src={Voucher}
               alt="voucher"
-              className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-cover z-0 opacity-90 transition-all duration-500"
             />
 
             {/* Content container */}
@@ -1161,26 +1205,27 @@ function App() {
               </div>
             </div>
 
-            {/* Bottom gradient overlay */}
+            {/* Left gradient overlay */}
             <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-30"
+              className="absolute left-0 top-0 bottom-0 w-[40%] pointer-events-none z-0"
               style={{
                 background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+                  "linear-gradient(90deg, #0B0C0F 0%, #0B0C0F80 70%, #0B0C0F00 100%)",
               }}
-            ></div>
+            />
             <div
               className="absolute top-0 left-0 w-full h-[15%] pointer-events-none z-30"
               style={{
                 background:
                   "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 50%, #0B0C0F 90%)",
               }}
-            ></div>
+            />
           </section>
         ) : (
           // Mobile: Each service as separate section
           <>
             <section
+              id="voucher"
               className="snap-start h-screen w-full relative flex flex-col px-6 py-10"
               style={{
                 minHeight: "100dvh",
@@ -1191,7 +1236,7 @@ function App() {
               <img
                 src={Voucher}
                 alt="voucher"
-                className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+                className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
               />
 
               <div className="flex flex-col h-full z-20">
@@ -1233,7 +1278,14 @@ function App() {
                   background:
                     "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
                 }}
-              ></div>
+              />
+              <div
+                className="absolute top-0 left-0 w-full h-[25%] pointer-events-none z-10"
+                style={{
+                  background:
+                    "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+                }}
+              />
             </section>
           </>
         )}

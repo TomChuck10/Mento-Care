@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-20">
-          <a href="/#about">
+          <a href="#about">
             <img
               src={Logo}
               alt="Logo"
@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex space-x-[32px] uppercase text-lg font-light">
+        <div className="hidden md:flex space-x-[24px] uppercase text-[16px] font-light">
           {menus.map((menu, i) => (
             <a
               key={i}
@@ -107,7 +107,7 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-[32px] uppercase text-lg font-light">
           {/* <span className="cursor-pointer text-textPrimary">BLOG</span> */}
 
-          <p className="text-prime cursor-pointer flex items-center gap-2">
+          <p className="text-prime cursor-pointer flex items-center gap-2 text-[16px]">
             <span>{`>`}</span>
             <span>
               <a
@@ -144,7 +144,7 @@ const Navbar = () => {
             {menus.map((item, index) => (
               <a
                 key={index}
-                href={`/#${item.id}`}
+                href={`#${item.id}`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="cursor-pointer"
               >
