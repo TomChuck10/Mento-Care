@@ -1050,9 +1050,10 @@ function App() {
         ) : (
           <section
             id="metamorphoses"
-            className="snap-start h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
+            className="snap-start min-h-screen w-full relative px-6 py-10 flex flex-col overflow-hidden"
             style={{
               minHeight: "100dvh",
+              paddingTop: "max(80px, env(safe-area-inset-top))",
               paddingBottom: "max(100px, env(safe-area-inset-bottom))",
             }}
             onTouchStart={(e) => {
@@ -1078,13 +1079,13 @@ function App() {
               }
             }}
           >
-            <div className="flex flex-col h-full z-30">
+            <div className="flex flex-col h-full z-30 justify-between">
               {/* Title */}
-              <div className="flex flex-col items-center mt-20 mb-8">
+              <div className="flex flex-col items-center mt-4 mb-6">
                 <h1
                   style={{
                     fontFamily: "Cormorant Garamond, SemiBold",
-                    fontSize: "40px",
+                    fontSize: "36px",
                     color: "#FFF8E7",
                   }}
                 >
@@ -1093,11 +1094,11 @@ function App() {
               </div>
 
               {/* Images in column */}
-              <div className="flex flex-col items-center space-y-6 flex-grow justify-center mb-10">
-                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 w-full max-w-xs">
+              <div className="flex flex-col items-center space-y-4 flex-grow justify-center">
+                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-4 pb-4 w-full max-w-xs">
                   <legend className="px-3 mx-2">
                     <h3
-                      className="text-[#FFF8E7] text-[18px]"
+                      className="text-[#FFF8E7] text-[16px]"
                       style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
@@ -1106,14 +1107,14 @@ function App() {
                   <img
                     src={beforeAfterData[currentBeforeAfterIndex].before}
                     alt="przed"
-                    className="block w-full h-[200px] object-cover"
+                    className="block w-full h-[180px] object-cover"
                   />
                 </fieldset>
 
-                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-6 pb-6 w-full max-w-xs">
+                <fieldset className="relative border-2 border-[#FFF8E7]/40 rounded-md pt-3 px-4 pb-4 w-full max-w-xs">
                   <legend className="px-3 mx-2">
                     <h3
-                      className="text-[#FFF8E7] text-[18px]"
+                      className="text-[#FFF8E7] text-[16px]"
                       style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
@@ -1122,13 +1123,13 @@ function App() {
                   <img
                     src={beforeAfterData[currentBeforeAfterIndex].after}
                     alt="po"
-                    className="block w-full h-[200px] object-cover"
+                    className="block w-full h-[180px] object-cover"
                   />
                 </fieldset>
               </div>
 
               {/* Navigation dots at bottom */}
-              <div className="flex flex-row justify-center items-center space-x-4">
+              <div className="flex flex-row justify-center items-center space-x-4 mb-4">
                 {beforeAfterData.map((_, index) => (
                   <div
                     key={index}
