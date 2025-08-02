@@ -12,8 +12,8 @@ const Navbar = () => {
     { name: "o nas", id: "about" },
     { name: "usługi", id: "services" },
     { name: "o mnie", id: "about-me" },
-    { name: "cennik", id: "pricing" },
     { name: "metamorfozy", id: "metamorphoses" },
+    { name: "cennik", id: "pricing" },
     { name: "voucher", id: "voucher" },
   ];
 

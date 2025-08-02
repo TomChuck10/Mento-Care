@@ -872,98 +872,6 @@ function App() {
             ></div>
           </section>
         )}
-        {/* Third Section - Price List */}
-        {!isMobile ? (
-          <section
-            id="pricing"
-            className="snap-start h-screen w-full relative "
-          >
-            <div className="flex h-full">
-              {/* Left side - Image */}
-              <div className="w-1/2 h-full relative">
-                <img
-                  src={PriceListPhoto}
-                  alt="Price List"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
-              </div>
-
-              {/* Right side - Price List */}
-              <div
-                className="w-1/2 h-full overflow-y-auto flex flex-col px-[60px] pt-[200px] pb-[100px]"
-                // style={{ fontFamily: "sans-serif" }}
-              >
-                {priceData.map((category, index) => (
-                  <PriceCard
-                    key={index}
-                    title={category.title}
-                    services={category.services}
-                    isMobile={false}
-                  />
-                ))}
-              </div>
-            </div>
-            <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-30"
-              style={{
-                background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
-              }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-full h-[25%] pointer-events-none z-30"
-              style={{
-                background:
-                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 20%, #0B0C0F 80%)",
-              }}
-            ></div>
-          </section>
-        ) : (
-          <section
-            id="pricing"
-            className="snap-start h-screen w-full relative px-6 py-10"
-            style={{
-              minHeight: "100dvh",
-              // paddingTop: "max(10px, env(safe-area-inset-top))",
-              paddingBottom: "max(100px, env(safe-area-inset-bottom))",
-            }}
-          >
-            <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
-              <h2
-                className="text-[#FFF8E7] text-[40px] text-center mb-8"
-                style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
-              >
-                Cennik
-              </h2>
-
-              {priceData.map((category, index) => (
-                <PriceCard
-                  key={index}
-                  title={category.title}
-                  services={category.services}
-                  isMobile={true}
-                />
-              ))}
-            </div>
-
-            {/* Bottom gradient overlay */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
-              style={{
-                background:
-                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
-              }}
-            ></div>
-            <div
-              className="absolute top-0 left-0 w-full h-[10%] pointer-events-none z-10"
-              style={{
-                background:
-                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
-              }}
-            ></div>
-          </section>
-        )}
 
         {/*Metamorphoses*/}
         {!isMobile ? (
@@ -1149,6 +1057,99 @@ function App() {
             </div>
 
             {/* Top gradient overlay */}
+            <div
+              className="absolute top-0 left-0 w-full h-[10%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+              }}
+            ></div>
+          </section>
+        )}
+
+        {/* Third Section - Price List */}
+        {!isMobile ? (
+          <section
+            id="pricing"
+            className="snap-start h-screen w-full relative "
+          >
+            <div className="flex h-full">
+              {/* Left side - Image */}
+              <div className="w-1/2 h-full relative">
+                <img
+                  src={PriceListPhoto}
+                  alt="Price List"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
+              </div>
+
+              {/* Right side - Price List */}
+              <div
+                className="w-1/2 h-full overflow-y-auto flex flex-col px-[60px] pt-[200px] pb-[100px]"
+                // style={{ fontFamily: "sans-serif" }}
+              >
+                {priceData.map((category, index) => (
+                  <PriceCard
+                    key={index}
+                    title={category.title}
+                    services={category.services}
+                    isMobile={false}
+                  />
+                ))}
+              </div>
+            </div>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+              }}
+            ></div>
+            <div
+              className="absolute top-0 left-0 w-full h-[25%] pointer-events-none z-30"
+              style={{
+                background:
+                  "linear-gradient(0deg, #0B0C0F00 0%, #0B0C0F80 20%, #0B0C0F 80%)",
+              }}
+            ></div>
+          </section>
+        ) : (
+          <section
+            id="pricing"
+            className="snap-start h-screen w-full relative px-6 py-10"
+            style={{
+              minHeight: "100dvh",
+              // paddingTop: "max(10px, env(safe-area-inset-top))",
+              paddingBottom: "max(100px, env(safe-area-inset-bottom))",
+            }}
+          >
+            <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
+              <h2
+                className="text-[#FFF8E7] text-[40px] text-center mb-8"
+                style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+              >
+                Cennik
+              </h2>
+
+              {priceData.map((category, index) => (
+                <PriceCard
+                  key={index}
+                  title={category.title}
+                  services={category.services}
+                  isMobile={true}
+                />
+              ))}
+            </div>
+
+            {/* Bottom gradient overlay */}
+            <div
+              className="absolute bottom-0 left-0 w-full h-[15%] pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0B0C0F00 0%, #0B0C0F80 40%, #0B0C0F 90%)",
+              }}
+            ></div>
             <div
               className="absolute top-0 left-0 w-full h-[10%] pointer-events-none z-10"
               style={{
