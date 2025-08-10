@@ -9,8 +9,18 @@ import PriceListPhoto from "./assets/cennik.png";
 import Gradient from "./assets/gradient.svg";
 import Navbar from "./components/Navbar";
 import Girl2 from "./assets/about-me.png";
-import Przed1 from "./assets/przed1.png";
-import Po1 from "./assets/po1.png";
+import Przed1 from "./assets/metamorphoses/przed1.png";
+import Po1 from "./assets/metamorphoses/po1.png";
+import Przed2 from "./assets/metamorphoses/przed2.png";
+import Po2 from "./assets/metamorphoses/po2.png";
+import Przed3 from "./assets/metamorphoses/przed3.png";
+import Po3 from "./assets/metamorphoses/po3.png";
+import Przed4 from "./assets/metamorphoses/przed4.png";
+import Po4 from "./assets/metamorphoses/po4.png";
+import Przed5 from "./assets/metamorphoses/przed5.png";
+import Po5 from "./assets/metamorphoses/po5.png";
+import Przed6 from "./assets/metamorphoses/przed6.png";
+import Po6 from "./assets/metamorphoses/po6.png";
 import Voucher from "./assets/voucher.png";
 
 // Services Images
@@ -266,13 +276,28 @@ function App() {
     },
     {
       id: 2,
-      before: Kobido,
-      after: MezoterapiaIglowa,
+      before: Przed2,
+      after: Po2,
     },
     {
       id: 3,
-      before: MezoterapiaMikroiglowa,
-      after: PeelingKwasowy,
+      before: Przed3,
+      after: Po3,
+    },
+    {
+      id: 4,
+      before: Przed4,
+      after: Po4,
+    },
+    {
+      id: 5,
+      before: Przed5,
+      after: Po5,
+    },
+    {
+      id: 6,
+      before: Przed6,
+      after: Po6,
     },
   ];
 
