@@ -25,9 +25,10 @@ import Voucher from "./assets/voucher.png";
 
 // Services Images
 import Kobido from "./assets/servicesPhotos/uslugi-kobido.png";
-import MezoterapiaMikroiglowa from "./assets/servicesPhotos/2-min.png";
-import MezoterapiaIglowa from "./assets/servicesPhotos/3-min.png";
+import MezoterapiaMikroiglowa from "./assets/servicesPhotos/MezoterapiaMikroiglowa.png";
+import MezoterapiaIglowa from "./assets/servicesPhotos/2-min.png";
 import MezoterapiaSkoryGlowy from "./assets/servicesPhotos/4-min.png";
+import TerapiaTradzikowa from "./assets/servicesPhotos/3-min.png";
 // import StylizacjaBrwi from "./assets/servicesPhotos/5-min.png";
 import PeelingKwasowy from "./assets/servicesPhotos/6-min.png";
 import RytualMentoCare from "./assets/servicesPhotos/7-min.png";
@@ -35,6 +36,7 @@ import LampaLED from "./assets/servicesPhotos/lampa-led.png";
 import DlaNiego from "./assets/servicesPhotos/dla-niego.png";
 import Konsultacja from "./assets/servicesPhotos/konsultacja.png";
 import Rytulal from "./assets/servicesPhotos/rytual.png";
+import BTX from "./assets/servicesPhotos/btx.png";
 
 import { useIsMobile } from "./hooks/useIsMobile";
 
@@ -51,7 +53,7 @@ const listOfServices = [
     name: "Terapia trądzikowa",
     description:
       "to kompleksowe podejście do skóry problematycznej, oparte na działaniu wielokierunkowym. Skutecznie oczyszcza pory, reguluje wydzielanie sebum i zatrzymuje stany zapalne. Rozjaśnia przebarwienia pozapalne, wygładza strukturę skóry i redukuje blizny potrądzikowe. To indywidualnie dobrana pielęgnacja, która przywraca skórze równowagę, świeżość i komfort",
-    image: MezoterapiaIglowa,
+    image: TerapiaTradzikowa,
   },
   {
     id: 3,
@@ -65,21 +67,21 @@ const listOfServices = [
     name: "Mezoterapia igłowa",
     description:
       "to najlepszy sposób na intensywne odżywienie i nawilżenie skóry od wewnątrz. Poprzez drobne wkłucia dostarczane są koktajle pełne witamin, kwasu hialuronowego i składników aktywnych. Zabieg poprawia koloryt, wygładza i przywraca cerze blask. To idealna terapia dla skóry zmęczonej, odwodnionej lub pozbawionej życia.",
-    image: MezoterapiaMikroiglowa,
+    image: MezoterapiaIglowa,
   },
   {
     id: 5,
     name: "Mezoterapia mikroigłowa",
     description:
       "to zabieg, który pobudza skórę do intensywnej regeneracji poprzez mikronakłucia. Poprawia napięcie, strukturę i koloryt skóry, a drobne zmarszczki, blizny oraz rozszerzone pory zostają zredukowane. Efektem jest gładsza, jędrniejsza i wyraźnie odświeżona cera. To najlepsza metoda na poprawę jakości skóry w naturalny sposób.",
-    image: MezoterapiaIglowa,
+    image: MezoterapiaMikroiglowa,
   },
   {
     id: 6,
     name: "BTX",
     description:
       "to szybki i mało inwazyjny sposób na wygładzenie zmarszczek mimicznych. Zabieg relaksuje wybrane mięśnie twarzy, dzięki czemu cera wygląda na młodszą i wypoczętą. Efekt jest naturalny i zauważalny już po kilku dniach. Idealne rozwiązanie na lwią zmarszczkę, kurze łapki i poziome linie na czole.",
-    image: PeelingKwasowy,
+    image: BTX,
   },
   {
     id: 7,
@@ -411,7 +413,7 @@ function App() {
             className={`text-[#FFF8E7] ${
               isMobile ? "text-[18px]" : "text-[24px]"
             }`}
-            style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+            // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
           >
             {title}
           </h3>
@@ -454,7 +456,7 @@ function App() {
             <div className="flex flex-col justify-center items-start h-full px-[98px]">
               <h1
                 style={{
-                  fontFamily: "Cormorant Garamond, SemiBold",
+                  // fontFamily: "Cormorant Garamond, SemiBold",
                   fontSize: "103px",
                   color: "#FCAF56",
                   marginBottom: "-10px",
@@ -587,7 +589,7 @@ function App() {
                 {/* Title */}
                 <h1
                   style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
+                    // fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "50px",
                     color: "#FCAF56",
                     marginBottom: 6,
@@ -666,10 +668,10 @@ function App() {
                 {/* Text content - stała szerokość zamiast md:w-1/2 */}
                 <div className="w-[800px] pr-12">
                   <h2
-                    className="text-[#FFF8E7] text-[72px] transition-all duration-500"
+                    className="text-[#FFF8E7] text-[59px] transition-all duration-500 w-[900px]"
                     style={{
-                      fontFamily: "Cormorant Garamond, SemiBold",
-                      lineHeight: 1.2,
+                      // fontFamily: "Cormorant Garamond, SemiBold",
+                      lineHeight: 1.5,
                     }}
                   >
                     {currentService.name}
@@ -757,7 +759,7 @@ function App() {
                     <h2
                       className="text-[#FFF8E7] text-[54px] mb-2 text-center"
                       style={{
-                        fontFamily: "Cormorant Garamond, SemiBold",
+                        // fontFamily: "Cormorant Garamond, SemiBold",
                         lineHeight: 1.2,
                       }}
                     >
@@ -804,7 +806,7 @@ function App() {
               <div className="flex flex-col justify-center items-start px-[98px]">
                 <h1
                   style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
+                    // fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "72px",
                     color: "#FFF8E7",
                     marginBottom: "-10px",
@@ -860,7 +862,7 @@ function App() {
                 {/* Title */}
                 <h1
                   style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
+                    // fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "50px",
                     color: "#FFF8E7",
                     marginBottom: 6,
@@ -908,7 +910,7 @@ function App() {
               <div className="flex flex-col justify-center mt-[150px]">
                 <h1
                   style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
+                    // fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "35px",
                     color: "#FFF8E7",
                     zIndex: 50,
@@ -924,7 +926,7 @@ function App() {
                       className={`text-[#FFF8E7] ${
                         isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
-                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
                     </h3>
@@ -942,7 +944,7 @@ function App() {
                       className={`text-[#FFF8E7] ${
                         isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
-                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
                     </h3>
@@ -1017,7 +1019,7 @@ function App() {
               <div className="flex flex-col items-center mt-4 mb-0">
                 <h1
                   style={{
-                    fontFamily: "Cormorant Garamond, SemiBold",
+                    // fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "36px",
                     color: "#FFF8E7",
                   }}
@@ -1032,7 +1034,7 @@ function App() {
                   <legend className="px-3 mx-2">
                     <h3
                       className="text-[#FFF8E7] text-[16px]"
-                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
                     </h3>
@@ -1048,7 +1050,7 @@ function App() {
                   <legend className="px-3 mx-2">
                     <h3
                       className="text-[#FFF8E7] text-[16px]"
-                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
                     </h3>
@@ -1152,7 +1154,7 @@ function App() {
             <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
               <h2
                 className="text-[#FFF8E7] text-[40px] text-center mb-8"
-                style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
               >
                 Cennik
               </h2>
@@ -1206,7 +1208,7 @@ function App() {
                   <h2
                     className="text-[#FFF8E7] text-[72px] transition-all duration-500"
                     style={{
-                      fontFamily: "Cormorant Garamond, SemiBold",
+                      // fontFamily: "Cormorant Garamond, SemiBold",
                       lineHeight: 1.2,
                     }}
                   >
@@ -1271,7 +1273,7 @@ function App() {
                   <h2
                     className="text-[#FFF8E7] text-[54px] mb-2 text-center"
                     style={{
-                      fontFamily: "Cormorant Garamond, SemiBold",
+                      // fontFamily: "Cormorant Garamond, SemiBold",
                       lineHeight: 1.2,
                     }}
                   >
