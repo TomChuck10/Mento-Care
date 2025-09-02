@@ -37,6 +37,8 @@ import DlaNiego from "./assets/servicesPhotos/dla-niego.png";
 import Konsultacja from "./assets/servicesPhotos/konsultacja.png";
 import Rytulal from "./assets/servicesPhotos/rytual.png";
 import BTX from "./assets/servicesPhotos/btx.png";
+import TerapiaTradzikowa2 from "./assets/servicesPhotos/terapia-tradzikowa.png";
+import HeadSPA from "./assets/servicesPhotos/head-spa.png";
 
 import { useIsMobile } from "./hooks/useIsMobile";
 
@@ -53,7 +55,7 @@ const listOfServices = [
     name: "Terapia trądzikowa",
     description:
       "to kompleksowe podejście do skóry problematycznej, oparte na działaniu wielokierunkowym. Skutecznie oczyszcza pory, reguluje wydzielanie sebum i zatrzymuje stany zapalne. Rozjaśnia przebarwienia pozapalne, wygładza strukturę skóry i redukuje blizny potrądzikowe. To indywidualnie dobrana pielęgnacja, która przywraca skórze równowagę, świeżość i komfort",
-    image: TerapiaTradzikowa,
+    image: TerapiaTradzikowa2,
   },
   {
     id: 3,
@@ -116,7 +118,7 @@ const listOfServices = [
     name: "Head SPA",
     description:
       "przyjemność zamknięta w dotyku, zapachu i dźwięku. Ciepła woda, aromatyczne olejki i powolny masaż skóry głowy pomagają wyciszyć umysł i rozluźnić ciało. Zabieg koi napięcia, poprawia krążenie, pielęgnuje włosy i skórę głowy. To błogi moment tylko dla Ciebie – spokojny, miękki i pełen relaksu.",
-    image: RytualMentoCare,
+    image: HeadSPA,
   },
   {
     id: 12,
@@ -413,7 +415,7 @@ function App() {
             className={`text-[#FFF8E7] ${
               isMobile ? "text-[18px]" : "text-[24px]"
             }`}
-            // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+            style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
           >
             {title}
           </h3>
@@ -456,7 +458,7 @@ function App() {
             <div className="flex flex-col justify-center items-start h-full px-[98px]">
               <h1
                 style={{
-                  // fontFamily: "Cormorant Garamond, SemiBold",
+                  fontFamily: "Cormorant Garamond, SemiBold",
                   fontSize: "103px",
                   color: "#FCAF56",
                   marginBottom: "-10px",
@@ -466,10 +468,14 @@ function App() {
                 MENTO CARE
               </h1>
               <p className="max-w-[675px] text-[#FFF8E7] text-[18px] font-thin">
-                wyjątkowe miejsce, gdzie profesjonalizm łączy się z komfortem i
-                indywidualnym podejściem. Diagnozujemy problemy skórne i
-                dobieramy skuteczne terapie, stawiając na slow aging – naturalne
-                piękno i zdrową, promienną cerę. Zapraszamy!
+                Nowoczesna przestrzeń kosmetologii estetycznej, gdzie nauka
+                spotyka się z troską. Specjalizujemy się w zaawansowanych
+                terapiach skóry twarzy i precyzyjnych zabiegach iniekcyjnych,
+                które subtelnie podkreślają naturalne piękno. Dzięki wiedzy,
+                doświadczeniui indywidualnemu podejściu tworzymy efekty, które
+                poprawiają wygląd i wzmacniają pewność siebie. Mento Care to
+                miejsce, w którym liczy się jakość, spokóji dbałość o każdy
+                detal.
               </p>
               <div className="flex justify-between items-center w-full mt-auto py-[2rem] z-20">
                 <div className="flex space-x-4">
@@ -589,7 +595,7 @@ function App() {
                 {/* Title */}
                 <h1
                   style={{
-                    // fontFamily: "Cormorant Garamond, SemiBold",
+                    fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "50px",
                     color: "#FCAF56",
                     marginBottom: 6,
@@ -600,10 +606,14 @@ function App() {
 
                 {/* Description */}
                 <p className="text-[#FFF8E7] text-[13px] text-justify max-w-xs mb-6 font-thin">
-                  wyjątkowe miejsce, gdzie profesjonalizm łączy się z komfortem
-                  i indywidualnym podejściem. Diagnozujemy problemy skórne i
-                  dobieramy skuteczne terapie, stawiając na slow aging –
-                  naturalne piękno i zdrową, promienną cerę. Zapraszamy!
+                  Nowoczesna przestrzeń kosmetologii estetycznej, gdzie nauka
+                  spotyka się z troską. Specjalizujemy się w zaawansowanych
+                  terapiach skóry twarzy i precyzyjnych zabiegach iniekcyjnych,
+                  które subtelnie podkreślają naturalne piękno. Dzięki wiedzy,
+                  doświadczeniui indywidualnemu podejściu tworzymy efekty, które
+                  poprawiają wygląd i wzmacniają pewność siebie. Mento Care to
+                  miejsce, w którym liczy się jakość, spokóji dbałość o każdy
+                  detal.
                 </p>
               </div>
 
@@ -665,12 +675,11 @@ function App() {
             {/* Content container */}
             <div className="px-[98px] z-20 relative w-full">
               <div className="flex flex-row items-end justify-between">
-                {/* Text content - stała szerokość zamiast md:w-1/2 */}
                 <div className="w-[800px] pr-12">
                   <h2
                     className="text-[#FFF8E7] text-[59px] transition-all duration-500 w-[900px]"
                     style={{
-                      // fontFamily: "Cormorant Garamond, SemiBold",
+                      fontFamily: "Cormorant Garamond, SemiBold",
                       lineHeight: 1.5,
                     }}
                   >
@@ -747,19 +756,12 @@ function App() {
                 />
 
                 <div className="flex flex-col h-full z-20">
-                  {/* Service indicator */}
-                  {/* <div className="flex justify-center items-center mt-20 mb-8">
-                    <span className="text-[#FFF8E7] text-sm opacity-70">
-                      {index + 1} / {listOfServices.length}
-                    </span>
-                  </div> */}
-
                   <div className="flex flex-col items-center flex-grow justify-end">
                     {/* Title centered */}
                     <h2
                       className="text-[#FFF8E7] text-[54px] mb-2 text-center"
                       style={{
-                        // fontFamily: "Cormorant Garamond, SemiBold",
+                        fontFamily: "Cormorant Garamond, SemiBold",
                         lineHeight: 1.2,
                       }}
                     >
@@ -806,7 +808,7 @@ function App() {
               <div className="flex flex-col justify-center items-start px-[98px]">
                 <h1
                   style={{
-                    // fontFamily: "Cormorant Garamond, SemiBold",
+                    fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "72px",
                     color: "#FFF8E7",
                     marginBottom: "-10px",
@@ -862,7 +864,7 @@ function App() {
                 {/* Title */}
                 <h1
                   style={{
-                    // fontFamily: "Cormorant Garamond, SemiBold",
+                    fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "50px",
                     color: "#FFF8E7",
                     marginBottom: 6,
@@ -910,7 +912,7 @@ function App() {
               <div className="flex flex-col justify-center mt-[150px]">
                 <h1
                   style={{
-                    // fontFamily: "Cormorant Garamond, SemiBold",
+                    fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "35px",
                     color: "#FFF8E7",
                     zIndex: 50,
@@ -926,7 +928,7 @@ function App() {
                       className={`text-[#FFF8E7] ${
                         isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
-                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
                     </h3>
@@ -944,7 +946,7 @@ function App() {
                       className={`text-[#FFF8E7] ${
                         isMobile ? "text-[18px]" : "text-[20px]"
                       }`}
-                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
                     </h3>
@@ -1019,7 +1021,7 @@ function App() {
               <div className="flex flex-col items-center mt-4 mb-0">
                 <h1
                   style={{
-                    // fontFamily: "Cormorant Garamond, SemiBold",
+                    fontFamily: "Cormorant Garamond, SemiBold",
                     fontSize: "36px",
                     color: "#FFF8E7",
                   }}
@@ -1034,7 +1036,7 @@ function App() {
                   <legend className="px-3 mx-2">
                     <h3
                       className="text-[#FFF8E7] text-[16px]"
-                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PRZED
                     </h3>
@@ -1050,7 +1052,7 @@ function App() {
                   <legend className="px-3 mx-2">
                     <h3
                       className="text-[#FFF8E7] text-[16px]"
-                      // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                      style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
                     >
                       PO
                     </h3>
@@ -1114,7 +1116,7 @@ function App() {
               {/* Right side - Price List */}
               <div
                 className="w-1/2 h-full overflow-y-auto flex flex-col px-[60px] pt-[200px] pb-[100px]"
-                // style={{ fontFamily: "sans-serif" }}
+                style={{ fontFamily: "sans-serif" }}
               >
                 {priceData.map((category, index) => (
                   <PriceCard
@@ -1154,7 +1156,7 @@ function App() {
             <div className="h-full overflow-y-auto flex flex-col pt-10 pb-20">
               <h2
                 className="text-[#FFF8E7] text-[40px] text-center mb-8"
-                // style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
+                style={{ fontFamily: "Cormorant Garamond, SemiBold" }}
               >
                 Cennik
               </h2>
@@ -1208,7 +1210,7 @@ function App() {
                   <h2
                     className="text-[#FFF8E7] text-[72px] transition-all duration-500"
                     style={{
-                      // fontFamily: "Cormorant Garamond, SemiBold",
+                      fontFamily: "Cormorant Garamond, SemiBold",
                       lineHeight: 1.2,
                     }}
                   >
@@ -1273,7 +1275,7 @@ function App() {
                   <h2
                     className="text-[#FFF8E7] text-[54px] mb-2 text-center"
                     style={{
-                      // fontFamily: "Cormorant Garamond, SemiBold",
+                      fontFamily: "Cormorant Garamond, SemiBold",
                       lineHeight: 1.2,
                     }}
                   >
