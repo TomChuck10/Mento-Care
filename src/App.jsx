@@ -137,38 +137,38 @@ function App() {
   const [isInServicesSection, setIsInServicesSection] = useState(false);
 
   const priceData = [
-    {
-      title: "Wiosna w Mento Care",
-      services: [
-        { name: "Pan Młody", price: "270 zł" },
-        { name: "Panna Młoda", price: "320 zł" },
-        { name: "Zabieg dla kobiet w ciąży/karmiących", price: "350 zł" },
-        { name: "Rytułał ESTHEMAX", price: "320 zł" },
-      ],
-    },
+    // {
+    //   title: "Wiosna w Mento Care",
+    //   services: [
+    //     { name: "Pan Młody", price: "270 zł" },
+    //     { name: "Panna Młoda", price: "320 zł" },
+    //     { name: "Zabieg dla kobiet w ciąży/karmiących", price: "350 zł" },
+    //     { name: "Rytułał ESTHEMAX", price: "320 zł" },
+    //   ],
+    // },
     {
       title: "Pierwsza wizyta",
       services: [
         { name: "Konsultacja kosmetologiczna", price: "100 zł" },
-        { name: "Konsultacja + zabieg", price: "180 zł" },
+        { name: "Konsultacja + zabieg", price: "+180 zł" },
       ],
     },
     {
       title: "Mezoterapia igłowa",
       services: [
-        { name: "Okolica oka", price: "250 zł" },
-        { name: "Twarz + oczy", price: "450 zł" },
-        { name: "Twarz + oczy", price: "550 zł" },
-        { name: "Twarz + oczy + szyja", price: "650 zł" },
+        { name: "Okolica oka", price: "+250 zł" },
+        { name: "Twarz + oczy", price: "+450 zł" },
+        { name: "Twarz + oczy", price: "+550 zł" },
+        { name: "Twarz + oczy + szyja", price: "+650 zł" },
         { name: "NEAUVIA HUDRO DELUXE", price: "590 zł" },
       ],
     },
     {
       title: "Biostymulatory tkankowe",
       services: [
-        { name: "Stymulator twarz/szyja/dekolt", price: "600 zł" },
-        { name: "Stymulator - okolica oczu", price: "500 zł" },
-        { name: "Stymulator - dłonie", price: "500 zł" },
+        { name: "Stymulator twarz/szyja/dekolt", price: "+600 zł" },
+        { name: "Stymulator - okolica oczu", price: "+500 zł" },
+        { name: "Stymulator - dłonie", price: "+500 zł" },
       ],
     },
     {
@@ -177,13 +177,12 @@ function App() {
         { name: "Twarz", price: "400 zł" },
         { name: "Twarz + szyja", price: "500 zł" },
         { name: "Twarz + szyja + dekolt", price: "550 zł" },
-        { name: "DERMAPEN + peeling kwasowy", price: "470 zł" },
+        { name: "DERMAPEN + peeling kwasowy", price: "500 zł" },
       ],
     },
     {
       title: "Japoński masaż",
       services: [
-        { name: "Pakiet 10 Kobido", price: "1700 zł" },
         { name: "Kobido basic", price: "220 zł" },
         { name: "+ Maska ESTHEMAX", price: "270 zł" },
         { name: "Pakiet 5 Kobido", price: "880 zł" },
@@ -199,9 +198,6 @@ function App() {
         { name: "Pakiet Pan&Pani", price: "550 zł" },
         {
           name: "DERMAPLANING (depilacja twarzy)",
-        },
-        {
-          name: "Wariant 1",
           price: "180 zł",
         },
         { name: "+ Peeling Kwasowy", price: "260 zł" },
@@ -222,13 +218,11 @@ function App() {
     {
       title: "TRYCHOLOGIA - Skóra głowy",
       services: [
-        { name: "Mizoterapia skóry głowy/broda - wariant 1" },
-        { name: "Wariant 1", price: "600 zł" },
+        { name: "Mezoterapia skóry głowy/broda", price: "600 zł" },
         { name: "Pakiet 4 zabiegów", price: "2000 zł" },
-        { name: "Mizoterapia Mikroigłowa skóry głowy" },
+        { name: "Mizoterapia Mikroigłowa skóry głowy", price: "350 zł" },
         { name: "+ EGZOSOMY", price: "500 zł" },
-        { name: "Wariant 2", price: "350 zł" },
-        { name: "Głębokie oczyszczanie skóry głwoy", price: "130 zł" },
+        { name: "Głębokie oczyszczanie skóry głowy", price: "130 zł" },
       ],
     },
     {
