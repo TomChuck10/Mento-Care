@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /src/assets/
 Sitemap: https://mentocare.pl/sitemap.xml
